@@ -1,0 +1,31 @@
+/**
+variables
+ */
+
+
+// type
+
+$global-font-size: 0.85rem;
+
+$line-height: 1.8;
+
+$heading-top : 2rem;
+$heading-bottom: 2rem;
+
+// primary navigation
+
+$menubg: transparent;
+$menuhoverbg: $primary;
+$menufontcolor: $black;
+$menufonthovercolor: $primary;
+$menubuttonsize: 45px;
+
+
+//xzoom
+
+$xzoom-border-width: 1px;
+$xzoom-border-defaultcolor: #f7f7f7;
+$xzoom-zoom-border-width: 10px;
+$xzoom-border-color: $primary;
+$xzoom-preview-border-color: $black;
+$xzoom-caption-fontcolor:#fff;
