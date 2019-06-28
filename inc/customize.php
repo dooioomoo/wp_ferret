@@ -15,47 +15,48 @@ add_action('wp_head', '_ferret_format_wp_head::stop', 1000);
  *
  * @param $wp_customize
  */
-function _ferret_customize_register( $wp_customize )
-{
-    // SEO keywords
-    $wp_customize->add_setting(
-        'seo_keywords', array(
-                          'default' => '',
-                          'transport' => 'postMessage',
-                          'sanitize_callback' => '_ferret_sanitize_seo_keywords',
-                      )
-    );
+if ( !function_exists('_ferret_customize_register') ):
+    function _ferret_customize_register( $wp_customize )
+    {
+        // SEO keywords
+        $wp_customize->add_setting(
+            'seo_keywords', array(
+                              'default' => '',
+                              'transport' => 'postMessage',
+                              'sanitize_callback' => '_ferret_sanitize_seo_keywords',
+                          )
+        );
 
-    $wp_customize->add_control(
-        'seo_keywords', array(
-                          'type' => 'text',
-                          'label' => __('SEO keywords', '_ferret'),
-                          'description' => __('SEO keywords mainly for the frontpage, separated by comma', 'twentyseventeen'),
-                          'section' => 'title_tagline',
-                          'priority' => 57,
-                      )
-    );
+        $wp_customize->add_control(
+            'seo_keywords', array(
+                              'type' => 'text',
+                              'label' => __('SEO keywords', '_ferret'),
+                              'description' => __('SEO keywords mainly for the frontpage, separated by comma', 'twentyseventeen'),
+                              'section' => 'title_tagline',
+                              'priority' => 57,
+                          )
+        );
 
-    // SEO description
-    $wp_customize->add_setting(
-        'seo_description', array(
-                             'default' => '',
-                             'transport' => 'postMessage',
-                             'sanitize_callback' => '_ferret_sanitize_seo_description',
-                         )
-    );
+        // SEO description
+        $wp_customize->add_setting(
+            'seo_description', array(
+                                 'default' => '',
+                                 'transport' => 'postMessage',
+                                 'sanitize_callback' => '_ferret_sanitize_seo_description',
+                             )
+        );
 
-    $wp_customize->add_control(
-        'seo_description', array(
-                             'type' => 'text',
-                             'label' => __('SEO description', '_ferret'),
-                             'description' => __('SEO description mainly for the frontpage', '_ferret'),
-                             'section' => 'title_tagline',
-                             'priority' => 58,
-                         )
-    );
-}
-
+        $wp_customize->add_control(
+            'seo_description', array(
+                                 'type' => 'text',
+                                 'label' => __('SEO description', '_ferret'),
+                                 'description' => __('SEO description mainly for the frontpage', '_ferret'),
+                                 'section' => 'title_tagline',
+                                 'priority' => 58,
+                             )
+        );
+    }
+endif;
 
 // Sanitize SEO keywords input
 function _ferret_sanitize_seo_keywords( $input )
@@ -128,7 +129,7 @@ function _ferret_create_seo_meta()
         $description = $description . $blogdescription;
     }
     print_r('<meta name="keywords" content="' . $keywords . '">' . "\n");
-    print_r("\t".'<meta name="description" content="' . $description . '">' . "\n");
+    print_r("\t" . '<meta name="description" content="' . $description . '">' . "\n");
 }
 
 class _ferret_format_wp_head
