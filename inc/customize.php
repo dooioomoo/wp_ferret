@@ -72,48 +72,6 @@ if ( !function_exists('_ferret_customize_register') ):
                                  'priority' => 58,
                              )
         );
-
-        /**
-         * add default view for widget
-         */
-
-        $wp_customize->add_panel( '_ferret_theme_options', array(
-            'priority'       => 500,
-            'theme_supports' => '',
-            'title'          => __( 'Theme Options', '_ferret' ),
-            'description'    => __( 'set something for the theme.', '_ferret' ),
-        ) );
-
-        $wp_customize->add_section( '_ferret_theme_options_widget_section', array(
-            'title' => __( 'Widget','_ferret' ),
-            'description' => __( 'custom theme widget options in here' ),
-            'panel' => '_ferret_theme_options', // Not typically needed.
-        ) );
-
-        $wp_customize->add_setting(
-            '_ferret_widget_default_view', array(
-                                     'default' => 'value2',
-                                     'transport' => 'postMessage',
-                                     'sanitize_callback' => '_ferret_widget_default_view',
-                                 )
-        );
-
-        $wp_customize->add_control(new WP_Customize_Control(
-                                       $wp_customize,
-                                       '_ferret_widget_default_view',
-                                       array(
-                                           'label'    => __( 'Default sidebar in all post type', '_ferret' ),
-                                           'section'  => '_ferret_theme_options_widget_section',
-                                           'settings' => '_ferret_widget_default_view',
-                                           'type'     => 'select',
-                                           'choices'    => array(
-                                               'value1' => 'Choice 1',
-                                               'value2' => 'Choice 2',
-                                               'value3' => 'Choice 3',
-                                           ),
-                                       )
-                                   )
-        );
     }
 endif;
 
@@ -230,9 +188,4 @@ class _ferret_format_wp_head
 
         echo "\t" . implode("\n\t", $lines) . "\n";
     }
-}
-
-function _ferret_widget_default_view( $input )
-{
-    return esc_attr($input);
 }

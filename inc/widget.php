@@ -13,7 +13,7 @@ function _ferret_widgets_init()
 {
     register_sidebar(array(
         'name'          => esc_html__('Sidebar', '_ferret'),
-        'id'            => 'sidebar-1',
+        'id'            => 'master-sidebar',
         'description'   => esc_html__('Add widgets here.', '_ferret'),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section>',
