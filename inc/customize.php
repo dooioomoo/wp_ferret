@@ -6,6 +6,7 @@
 
 
 add_action('customize_register', '_ferret_customize_register');
+
 add_action('wp_footer', '_ferret_format_wp_head::open', 1);
 add_action('wp_footer', '_ferret_format_wp_head::stop', 1000);
 add_action('wp_head', '_ferret_format_wp_head::open', 1);
@@ -18,6 +19,22 @@ add_action('wp_head', '_ferret_format_wp_head::stop', 1000);
 if ( !function_exists('_ferret_customize_register') ):
     function _ferret_customize_register( $wp_customize )
     {
+        $wp_customize->get_setting('blogname')->transport = 'postMessage';
+        $wp_customize->get_setting('blogdescription')->transport = 'postMessage';
+        $wp_customize->get_setting('header_textcolor')->transport = 'postMessage';
+
+        if ( isset($wp_customize->selective_refresh) ) {
+            $wp_customize->selective_refresh->add_partial('blogname', array(
+                'selector' => '.site-title a',
+                'render_callback' => '_ferret_customize_partial_blogname',
+            ));
+            $wp_customize->selective_refresh->add_partial('blogdescription', array(
+                'selector' => '.site-description',
+                'render_callback' => '_ferret_customize_partial_blogdescription',
+            ));
+        }
+
+
         // SEO keywords
         $wp_customize->add_setting(
             'seo_keywords', array(
@@ -31,7 +48,7 @@ if ( !function_exists('_ferret_customize_register') ):
             'seo_keywords', array(
                               'type' => 'text',
                               'label' => __('SEO keywords', '_ferret'),
-                              'description' => __('SEO keywords mainly for the frontpage, separated by comma', 'twentyseventeen'),
+                              'description' => __('SEO keywords mainly for the frontpage', '_ferret'),
                               'section' => 'title_tagline',
                               'priority' => 57,
                           )
@@ -55,8 +72,60 @@ if ( !function_exists('_ferret_customize_register') ):
                                  'priority' => 58,
                              )
         );
+
+        /**
+         * add default view for widget
+         */
+
+        $wp_customize->add_panel( '_ferret_theme_options', array(
+            'priority'       => 500,
+            'theme_supports' => '',
+            'title'          => __( 'Theme Options', '_ferret' ),
+            'description'    => __( 'set something for the theme.', '_ferret' ),
+        ) );
+
+        $wp_customize->add_section( '_ferret_theme_options_widget_section', array(
+            'title' => __( 'Widget','_ferret' ),
+            'description' => __( 'custom theme widget options in here' ),
+            'panel' => '_ferret_theme_options', // Not typically needed.
+        ) );
+
+        $wp_customize->add_setting(
+            '_ferret_widget_default_view', array(
+                                     'default' => 'value2',
+                                     'transport' => 'postMessage',
+                                     'sanitize_callback' => '_ferret_widget_default_view',
+                                 )
+        );
+
+        $wp_customize->add_control(new WP_Customize_Control(
+                                       $wp_customize,
+                                       '_ferret_widget_default_view',
+                                       array(
+                                           'label'    => __( 'Default sidebar in all post type', '_ferret' ),
+                                           'section'  => '_ferret_theme_options_widget_section',
+                                           'settings' => '_ferret_widget_default_view',
+                                           'type'     => 'select',
+                                           'choices'    => array(
+                                               'value1' => 'Choice 1',
+                                               'value2' => 'Choice 2',
+                                               'value3' => 'Choice 3',
+                                           ),
+                                       )
+                                   )
+        );
     }
 endif;
+
+function _ferret_customize_partial_blogname()
+{
+    bloginfo('name');
+}
+
+function _ferret_customize_partial_blogdescription()
+{
+    bloginfo('description');
+}
 
 // Sanitize SEO keywords input
 function _ferret_sanitize_seo_keywords( $input )
@@ -161,4 +230,9 @@ class _ferret_format_wp_head
 
         echo "\t" . implode("\n\t", $lines) . "\n";
     }
+}
+
+function _ferret_widget_default_view( $input )
+{
+    return esc_attr($input);
 }
