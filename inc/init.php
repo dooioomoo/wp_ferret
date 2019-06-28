@@ -13,6 +13,7 @@ add_action('after_setup_theme', '_ferret_custom_header_setup');
 /**
  * include widget settings
  */
+require_once(___ferretthemepath__ . '/inc/helper.php');
 require_once(___ferretthemepath__ . '/inc/widget.php');
 require_once(___ferretthemepath__ . '/inc/enqueue.php');
 require_once(___ferretthemepath__ . '/inc/customize.php');

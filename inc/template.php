@@ -5,7 +5,7 @@
  */
 
 add_filter('body_class', '_ferret_body_classes');
-
+add_action( 'add_meta_boxes', '_ferret_add_options_to_all_post_type' );
 
 /**
  * @param $classes
@@ -30,14 +30,20 @@ if ( !function_exists('_ferret_body_classes') ):
     }
 endif;
 
-function _ferret_sidebar_is_active()
-{
-    global $wp_registered_sidebars;
+/**
+ * add options box to all post type
+ */
 
-    foreach ( $GLOBALS['wp_registered_sidebars'] as $sidebar ) {
-        if ( is_active_sidebar($sidebar['name']) or is_active_sidebar($sidebar['id']) ) {
-            return true;
-        }
-    }
-    return false;
+function _ferret_add_options_to_all_post_type(){
+    add_meta_box(
+        'custom_sidebar',
+        __( 'Options', '_ferret' ),
+        '_ferret_add_options_to_all_post_type_callback',
+        'post',
+        'side'
+    );
+}
+
+function _ferret_add_options_to_all_post_type_callback($post){
+
 }
