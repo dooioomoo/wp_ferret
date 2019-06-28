@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="958402b3-5445-4007-9163-f4ef20dde02b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/inc/template-customize.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/customize.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/customize.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/init.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/widget.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/widget.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inc/template-customize.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/template-customize.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/customize.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="133" column="29" selection-start-line="133" selection-start-column="16" selection-end-line="133" selection-end-column="29" />
+            <state relative-caret-position="96">
+              <caret line="123" column="5" lean-forward="true" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
               <folding>
                 <element signature="e#6#64#0#PHP" expanded="true" />
               </folding>
@@ -59,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/inc/template-customize.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1215">
-              <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+            <state relative-caret-position="380">
+              <caret line="36" column="67" selection-start-line="36" selection-start-column="67" selection-end-line="36" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -203,12 +198,12 @@
       <option name="presentableId" value="Default" />
       <updated>1561619170729</updated>
       <workItem from="1561619175082" duration="5075000" />
-      <workItem from="1561733689156" duration="17619000" />
+      <workItem from="1561733689156" duration="17758000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22694000" />
+    <option name="totallyTimeSpent" value="22833000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="23" width="1936" height="1065" extended-state="6" />
@@ -333,20 +328,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inc/template-customize.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1215">
-          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inc/customize.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="133" column="29" selection-start-line="133" selection-start-column="16" selection-end-line="133" selection-end-column="29" />
+        <state relative-caret-position="96">
+          <caret line="123" column="5" lean-forward="true" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
           <folding>
             <element signature="e#6#64#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/template-customize.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="36" column="67" selection-start-line="36" selection-start-column="67" selection-end-line="36" selection-end-column="67" />
         </state>
       </provider>
     </entry>

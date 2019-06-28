@@ -27,18 +27,18 @@ if ( !function_exists('_ferret_template_customize_register') ):
         ));
 
         $wp_customize->add_setting(
-            '_ferret_widget_default_views', array(
+            '_ferret_widget_default_view', array(
                                               'default' => 'master-sidebar',
                                               'transport' => 'postMessage',
                                           )
         );
         $wp_customize->add_control(new WP_Customize_Control(
                                        $wp_customize,
-                                       '_ferret_widget_default_views',
+                                       '_ferret_widget_default_view',
                                        array(
                                            'label' => __('Default sidebar in all post type', '_ferret'),
                                            'section' => '_ferret_theme_options_widget_section',
-                                           'settings' => '_ferret_widget_default_views',
+                                           'settings' => '_ferret_widget_default_view',
                                            'type' => 'select',
                                            'choices' => _ferret_get_all_sidebar()
                                        )
