@@ -59,7 +59,7 @@ function _ferret_add_options_to_all_post_type_callback( $post )
 function _ferret_add_options_sidebar_choice( $post )
 {
     global $wp_registered_sidebars;
-    $val = ($val = get_post_meta($post->ID, "_ferret_display_post_sidebar", true)) ? $val : get_theme_mod('_ferret_widget_default_view', 'master-sidebar');
+    $val = ($val = get_post_meta($post->ID, "_ferret_display_post_sidebar", true)) ? $val : get_theme_mod('_ferret_widget_default_view_'.get_post_type(), 'master-sidebar');
     // The actual fields for data entry
     $output = '<p><label for="_ferret_display_post_sidebar">' . __("Choose a sidebar to display", '_ferret') . '</label></p>';
     $output .= "<select name='_ferret_display_post_sidebar' id='_ferret_display_post_sidebar'>";
