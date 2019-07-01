@@ -74,7 +74,7 @@ if (!function_exists('_ferret_custom_header_setup')):
     function _ferret_custom_header_setup()
     {
         add_theme_support('custom-header', apply_filters('_ferret_custom_header_args', array(
-            'default-image'      => '',
+            'default-image'      => ___ferret_theme_uri__.'/assets/images/header.jpg',
             'default-text-color' => '000000',
             'width'              => 1920,
             'height'             => 300,
