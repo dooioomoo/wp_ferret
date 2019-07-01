@@ -18,7 +18,4 @@
 		'menu_id'        => 'top-menu',
 	) ); ?>
 
-	<?php if ( ( ( is_home() && is_front_page() ) ) && has_custom_header() ) : ?>
-		<a href="#content" class="menu-scroll-down"><?php echo _ferret_get_svg( array( 'icon' => 'arrow-right' ) ); ?><span class="screen-reader-text"><?php _e( 'Scroll down to content', '_ferret' ); ?></span></a>
-	<?php endif; ?>
 </nav><!-- #site-navigation -->

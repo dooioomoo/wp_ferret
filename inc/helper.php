@@ -56,3 +56,10 @@ function _ferret_get_all_posttype()
     }
     return $checkgroup;
 }
+
+/**
+ * Checks to see if we're on the homepage or not.
+ */
+function _ferret_is_frontpage() {
+    return ( is_front_page() && ! is_home() );
+}

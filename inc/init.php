@@ -20,14 +20,14 @@ require_once(___ferret_theme_path__ . '/inc/customize.php');
 require_once(___ferret_theme_path__ . '/inc/icon-functions.php');
 require_once(___ferret_theme_path__ . '/inc/template.php');
 require_once(___ferret_theme_path__ . '/inc/template-customize.php');
-if ( class_exists('WooCommerce') ) {
+if (class_exists('WooCommerce')) {
     require_once(___ferret_theme_path__ . '/inc/woocommerce.php');
 }
 
 /**
  * theme init functions
  */
-if ( !function_exists('_ferret_setup') ) :
+if (!function_exists('_ferret_setup')) :
     function _ferret_setup()
     {
         load_theme_textdomain('_ferret', ___ferret_theme_path__ . '/languages');
@@ -38,8 +38,8 @@ if ( !function_exists('_ferret_setup') ) :
         add_theme_support('customize-selective-refresh-widgets');
 
         register_nav_menus(array(
-                               'PrimaryMenu' => esc_html__('Primary', '_ferret'),
-                           ));
+            'PrimaryMenu' => esc_html__('Primary', '_ferret'),
+        ));
 
         add_theme_support('html5', array(
             'search-form',
@@ -55,30 +55,30 @@ if ( !function_exists('_ferret_setup') ) :
         )));
 
         add_theme_support('custom-logo', array(
-            'height' => 250,
-            'width' => 250,
-            'flex-width' => true,
+            'height'      => 250,
+            'width'       => 250,
+            'flex-width'  => true,
             'flex-height' => true,
         ));
     }
 endif;
 
-if ( !function_exists('_ferret_content_width') ):
+if (!function_exists('_ferret_content_width')):
     function _ferret_content_width()
     {
         $GLOBALS['content_width'] = apply_filters('_ferret_content_width', 640);
     }
 endif;
 
-if ( !function_exists('_ferret_custom_header_setup') ):
+if (!function_exists('_ferret_custom_header_setup')):
     function _ferret_custom_header_setup()
     {
         add_theme_support('custom-header', apply_filters('_ferret_custom_header_args', array(
-            'default-image' => '',
+            'default-image'      => '',
             'default-text-color' => '000000',
-            'width' => 1920,
-            'height' => 300,
-            'flex-height' => true,
+            'width'              => 1920,
+            'height'             => 300,
+            'flex-height'        => true,
             //        'wp-head-callback'       => '_ferret_header_style',
         )));
     }
