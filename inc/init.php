@@ -13,14 +13,15 @@ add_action('after_setup_theme', '_ferret_custom_header_setup');
 /**
  * include widget settings
  */
-require_once(___ferretthemepath__ . '/inc/helper.php');
-require_once(___ferretthemepath__ . '/inc/widget.php');
-require_once(___ferretthemepath__ . '/inc/enqueue.php');
-require_once(___ferretthemepath__ . '/inc/customize.php');
-require_once(___ferretthemepath__ . '/inc/template.php');
-require_once(___ferretthemepath__ . '/inc/template-customize.php');
+require_once(___ferret_theme_path__ . '/inc/helper.php');
+require_once(___ferret_theme_path__ . '/inc/widget.php');
+require_once(___ferret_theme_path__ . '/inc/enqueue.php');
+require_once(___ferret_theme_path__ . '/inc/customize.php');
+require_once(___ferret_theme_path__ . '/inc/icon-functions.php');
+require_once(___ferret_theme_path__ . '/inc/template.php');
+require_once(___ferret_theme_path__ . '/inc/template-customize.php');
 if ( class_exists('WooCommerce') ) {
-    require_once(___ferretthemepath__ . '/inc/woocommerce.php');
+    require_once(___ferret_theme_path__ . '/inc/woocommerce.php');
 }
 
 /**
@@ -29,7 +30,7 @@ if ( class_exists('WooCommerce') ) {
 if ( !function_exists('_ferret_setup') ) :
     function _ferret_setup()
     {
-        load_theme_textdomain('_ferret', get_template_directory() . '/languages');
+        load_theme_textdomain('_ferret', ___ferret_theme_path__ . '/languages');
 
 //        add_theme_support( 'automatic-feed-links' );
 //        add_theme_support( 'title-tag' );
