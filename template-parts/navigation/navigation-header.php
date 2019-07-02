@@ -6,10 +6,6 @@
 ?>
 <div id="site-navigation" class="main-navigation" role="navigation"
      aria-label="<?php esc_attr_e('Top Menu', '_ferret'); ?>">
-    <?php wp_nav_menu(array(
-        'theme_location' => 'PrimaryMenu',
-        'menu_id'        => 'primary-menu',
-    )); ?>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -20,8 +16,10 @@
                     _e('Menu', '_ferret');
                     ?>
                 </button>
-
-
+                <?php wp_nav_menu(array(
+                    'theme_location' => 'PrimaryMenu',
+                    'menu_id'        => 'primary-menu',
+                )); ?>
             </div>
         </div>
     </div>

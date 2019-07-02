@@ -14,10 +14,10 @@ $heading-bottom: 2rem;
 
 // primary navigation
 
-$menubg: transparent;
+$menubg: $primary;
 $menuhoverbg: $primary;
-$menufontcolor: $black;
-$menufonthovercolor: $primary;
+$menufontcolor: $white;
+$menufonthovercolor: $warning;
 $menubuttonsize: 45px;
 
 
