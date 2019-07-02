@@ -92,7 +92,7 @@ function _ferret_add_options_to_all_post_type_save( $post_id )
     // verify this came from our screen and with proper authorization,
     // because save_post can be triggered at other times
 
-    if ( !wp_verify_nonce($_POST['_ferret_options_nonce'], plugin_basename(__FILE__)) )
+    if ( !wp_verify_nonce(@$_POST['_ferret_options_nonce'], plugin_basename(__FILE__)) )
         return;
 
     if ( !current_user_can('edit_page', $post_id) )

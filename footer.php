@@ -10,19 +10,25 @@
 </div><!-- #content -->
 
 <footer id="colophon" class="site-footer">
-    <div class="site-info">
-        <a href="<?php echo esc_url( __( 'https://wordpress.org/', '_s' ) ); ?>">
-            <?php
-            /* translators: %s: CMS name, i.e. WordPress. */
-            printf( esc_html__( 'Proudly powered by %s', '_s' ), 'WordPress' );
-            ?>
-        </a>
-        <span class="sep"> | </span>
-        <?php
-        /* translators: 1: Theme name, 2: Theme author. */
-        printf( esc_html__( 'Theme: %1$s by %2$s.', '_s' ), '_s', '<a href="https://fduit.com/">Ferret Theme</a>' );
-        ?>
-    </div><!-- .site-info -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="site-info">
+                    <a href="<?php get_site_url(); ?>">
+                        <?php
+                        /* translators: %s: CMS name, i.e. WordPress. */
+                        printf(esc_html__(date('Y') . ' &copy; %s', '_ferret'), get_bloginfo('name'));
+                        ?>
+                    </a>
+                    <span class="sep"> | </span>
+                    <?php
+                    /* translators: 1: Theme name, 2: Theme author. */
+                    printf(esc_html__('All Rights Reserved.', '_ferret'),'');
+                    ?>
+                </div><!-- .site-info -->
+            </div> <!-- .col-md-12 -->
+        </div><!-- .row -->
+    </div>
 </footer><!-- #colophon -->
 </div><!-- #page -->
 

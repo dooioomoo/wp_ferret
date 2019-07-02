@@ -1,9 +1,22 @@
+#colophon {
+}
+
 .site-footer {
   position: relative;
   padding: 30px 0;
+  background: $footer-background;
+  color: $footer-color;
 
-  .site-footer {
+  a{
+    color:$footer-link-color;
+    &:hover{
+      color:$footer-color;
+    }
+  }
+
+  .site-info {
 
   }
 }
+
 
