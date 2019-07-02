@@ -14,17 +14,19 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="site-info">
-                    <a href="<?php get_site_url(); ?>">
+                    <a href="<?php get_site_url(); ?>" class="copylink">
                         <?php
                         /* translators: %s: CMS name, i.e. WordPress. */
                         printf(esc_html__(date('Y') . ' &copy; %s', '_ferret'), get_bloginfo('name'));
                         ?>
                     </a>
                     <span class="sep"> | </span>
+                    <span class="copyright">
                     <?php
                     /* translators: 1: Theme name, 2: Theme author. */
                     printf(esc_html__('All Rights Reserved.', '_ferret'),'');
                     ?>
+                    </span>
                 </div><!-- .site-info -->
             </div> <!-- .col-md-12 -->
         </div><!-- .row -->
