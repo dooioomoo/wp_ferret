@@ -25,6 +25,7 @@ if ( !function_exists('_ferret_get_main_col') ):
             $col = 'col-md-12';
         endif;
         echo '<main id="main" class="site-main ' . $col . '">';
+        echo '<section class="site-main-wrap">';
     }
 
 endif;
@@ -32,6 +33,7 @@ endif;
 if ( !function_exists('_ferret_get_main_col_end') ):
     function _ferret_get_main_col_end()
     {
+        echo '</section>';
         echo '</main>';
     }
 endif;
@@ -41,9 +43,11 @@ if ( !function_exists('_ferret_get_sidebar_col') ):
     function _ferret_get_sidebar_col()
     {
         if ( _ferret_check_widget() ):
-            print_r('<div class="sidebar col-md-4">');
+            echo '<section class="sidebar col-md-4">';
+            print_r('<div class="sidebar-wrap">');
             _ferret_display_widget();
             print_r('</div>');
+            echo '</section>';
         endif;
     }
 endif;

@@ -87,7 +87,7 @@ if ( !function_exists('_ferret_check_widget') ):
     {
         global $post;
         $val = ($val = get_post_meta($post->ID, "_ferret_display_post_sidebar", true)) ? $val : get_theme_mod('_ferret_widget_default_view_' . get_post_type(), 'master-sidebar');
-        if ( $val != 'none' ):
+        if ( $val != 'none' and $val !='default' ):
             return true;
         else:
             return false;
