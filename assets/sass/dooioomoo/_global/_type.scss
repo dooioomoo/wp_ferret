@@ -18,3 +18,17 @@ h1, h2, h3, h4, h5, h6,
   margin-top: $heading-top;
   margin-bottom: $heading-bottom;
 }
+
+
+html{
+  &[lang=zh-CN]{
+    body{
+      font-family: -apple-system, SF UI Text, "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    }
+  }
+  &[lang=ja]{
+    body{
+      font-family: ヒラギノ角ゴ ProN,Hiragino Kaku Gothic ProN,ヒラギノ角ゴ Pro,Hiragino Kaku Gothic Pro,メイリオ,Meiryo,ＭＳ Ｐゴシック,MS PGothic,sans-serif;
+    }
+  }
+}

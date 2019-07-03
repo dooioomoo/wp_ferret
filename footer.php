@@ -1,12 +1,12 @@
 <?php
 /**
  * theme footer
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ * @link    https://developer.wordpress.org/themes/basics/template-files/#template-partials
  * @package _ferret
  */
 
 ?>
-
+</div><!-- .container -->
 </div><!-- #content -->
 
 <footer id="colophon" class="site-footer">
@@ -24,7 +24,7 @@
                     <span class="copyright">
                     <?php
                     /* translators: 1: Theme name, 2: Theme author. */
-                    printf(esc_html__('All Rights Reserved.', '_ferret'),'');
+                    printf(esc_html__('All Rights Reserved.', '_ferret'), '');
                     ?>
                     </span>
                 </div><!-- .site-info -->
