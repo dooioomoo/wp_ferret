@@ -135,7 +135,7 @@ function _ferret_create_seo_meta()
     $description = get_theme_mod("seo_description", $blogdescription);
 
     if ( !is_front_page() ) {
-        if ( $post->post_excerpt ) {
+        if ( !empty($post->post_excerpt) ) {
             $description = $post->post_excerpt;
         } else {
             $description = $blogdescription;
@@ -147,10 +147,12 @@ function _ferret_create_seo_meta()
                 $keywords = $keywords . $product_tag->name . ', ';
             }
         } else { // Not a product page
-            $tags = wp_get_post_tags($post->ID);
-            foreach ( $tags as $tag ) {
-                $keywords = $keywords . $tag->name . ', ';
-            }
+            if ( !empty($post->ID) ):
+                $tags = wp_get_post_tags($post->ID);
+                foreach ( $tags as $tag ) {
+                    $keywords = $keywords . $tag->name . ', ';
+                }
+            endif;
         }
         $keywords = $keywords . $blogname;
         $description = $description . $blogdescription;

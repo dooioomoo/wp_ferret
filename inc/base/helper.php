@@ -74,7 +74,7 @@ if ( !function_exists('_ferret_display_widget') ):
     function _ferret_display_widget()
     {
         global $post;
-        $val = ($val = get_post_meta($post->ID, "_ferret_display_post_sidebar", true)) ? $val : get_theme_mod('_ferret_widget_default_view_' . get_post_type(), 'master-sidebar');
+        $val = (!empty($post->ID) and $val = get_post_meta($post->ID, "_ferret_display_post_sidebar", true)) ? $val : get_theme_mod('_ferret_widget_default_view_' . get_post_type(), 'master-sidebar');
         if ( $val != 'none' )
             dynamic_sidebar($val);
 
@@ -86,7 +86,7 @@ if ( !function_exists('_ferret_check_widget') ):
     function _ferret_check_widget()
     {
         global $post;
-        $val = ($val = get_post_meta($post->ID, "_ferret_display_post_sidebar", true)) ? $val : get_theme_mod('_ferret_widget_default_view_' . get_post_type(), 'master-sidebar');
+        $val = (!empty($post->ID) and $val = get_post_meta($post->ID, "_ferret_display_post_sidebar", true)) ? $val : get_theme_mod('_ferret_widget_default_view_' . get_post_type(), 'master-sidebar');
         if ( $val != 'none' and $val !='default' ):
             return true;
         else:
