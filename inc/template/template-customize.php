@@ -6,6 +6,8 @@
 
 add_action('customize_register', '_ferret_template_customize_register');
 
+add_filter('comment_form_defaults', '_ferret_comment_form_change');
+
 if ( !function_exists('_ferret_template_customize_register') ):
     function _ferret_template_customize_register( $wp_customize )
     {
@@ -78,4 +80,20 @@ function _ferret_widget_default_view_by_posttype( $wp_customize )
                                    )
         );
     }
+}
+
+function _ferret_comment_form_change( $form )
+{
+    global $user_identity,$post_id;
+    $form['logged_in_as'] = '<p class="logged-in-as">' . sprintf(
+        /* translators: 1: edit user link, 2: accessibility text, 3: user name, 4: logout URL */
+            __('<a href="%1$s" aria-label="%2$s" class="btn btn-primary btn-lg">Logged in as %3$s</a>&nbsp;&nbsp;<a href="%4$s" class="btn btn-info btn-lg">Log out?</a>', '_ferret'),
+            get_edit_user_link(),
+            /* translators: %s: user name */
+            esc_attr(sprintf(__('Logged in as %s. Edit your profile.', '_ferret'), $user_identity)),
+            $user_identity,
+            wp_logout_url(apply_filters('the_permalink', get_permalink($post_id), $post_id))
+        ) . '</p>';
+
+    return $form;
 }
