@@ -101,6 +101,10 @@ function _ferret_sanitize_seo_description( $input )
 function _ferret_create_title_tag()
 {
     echo '<title>';
+
+    $tag = (!empty($_GET['tag'])) ? $_GET['tag'] : '';
+    $s = (!empty($_GET['s'])) ? $_GET['s'] : '';
+
     if ( is_front_page() ) {
         bloginfo('name');
         echo ' - ';
@@ -112,7 +116,7 @@ function _ferret_create_title_tag()
             wp_title('');
             echo __('Archive') . ' - ';
         } elseif ( is_search() ) {
-            echo __('Search for') . '  &quot;' . wp_specialchars($s) . '&quot; - ';
+            echo __('Search for') . '  &quot;' . esc_html($s) . '&quot; - ';
         } elseif ( !(is_404()) && (is_single()) || (is_page()) ) {
             wp_title('');
             echo ' - ';
