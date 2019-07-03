@@ -24,7 +24,7 @@ function _ferret_get_all_sidebar()
 {
     global $wp_registered_sidebars;
     $allsidebar = array();
-    $allsidebar['none'] = __('no sidebar','_ferret');
+    $allsidebar['none'] = __('no sidebar', '_ferret');
     foreach ( $wp_registered_sidebars as $sidebar ) {
         $allsidebar[$sidebar['id']] = $sidebar['name'];
     }
@@ -61,8 +61,9 @@ function _ferret_get_all_posttype()
 /**
  * Checks to see if we're on the homepage or not.
  */
-function _ferret_is_frontpage() {
-    return ( is_front_page() && ! is_home() );
+function _ferret_is_frontpage()
+{
+    return (is_front_page() && !is_home());
 }
 
 /**
@@ -94,3 +95,4 @@ if ( !function_exists('_ferret_check_widget') ):
 
     }
 endif;
+

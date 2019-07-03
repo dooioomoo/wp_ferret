@@ -5,4 +5,14 @@
 
 #primary.content-area {
   min-height: 600px;
+
+  .site-main {
+    &.main-has-sidebar {
+      padding-right: $content-main-sidebar-gutter;
+    }
+  }
+
+  .sidebar {
+    padding-left: $content-main-sidebar-gutter;
+  }
 }

@@ -5,23 +5,25 @@ variables
 
 // type
 
-$global-font-size: 0.85rem;
+$global-font-size: 1rem;
 
 $line-height: 1.8;
 
-$heading-top : 2rem;
+$heading-top: 2rem;
 $heading-bottom: 2rem;
 
 // primary navigation
 
 $menubg: $primary;
-$menufontsize:15px;
+$menufontsize: 15px;
 $menuhoverbg: $primary;
 $menufontcolor: $white;
 $menufonthovercolor: $warning;
 $menubuttonsize: 50px;
-$menubuttonradius:5px;
+$menubuttonradius: 5px;
 
+//container
+$content-main-sidebar-gutter: 32px;
 
 //xzoom
 
@@ -30,11 +32,11 @@ $xzoom-border-defaultcolor: #f7f7f7;
 $xzoom-zoom-border-width: 10px;
 $xzoom-border-color: $primary;
 $xzoom-preview-border-color: $black;
-$xzoom-caption-fontcolor:#fff;
+$xzoom-caption-fontcolor: #fff;
 
 
 //footer
 
 $footer-background: $black;
-$footer-color:$white;
-$footer-link-color:$warning;
+$footer-color: $white;
+$footer-link-color: $warning;

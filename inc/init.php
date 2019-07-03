@@ -16,6 +16,7 @@ add_action('after_setup_theme', '_ferret_custom_header_setup');
  */
 require_once(___ferret_theme_path__ . '/inc/customize.php');
 
+require_once(___ferret_theme_path__ . '/inc/base/add_action.php');
 require_once(___ferret_theme_path__ . '/inc/base/helper.php');
 require_once(___ferret_theme_path__ . '/inc/base/widget.php');
 require_once(___ferret_theme_path__ . '/inc/base/enqueue.php');
