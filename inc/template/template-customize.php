@@ -79,11 +79,3 @@ function _ferret_widget_default_view_by_posttype( $wp_customize )
         );
     }
 }
-
-function _ferret_display_widget_in_post_type()
-{
-    $type = get_post_type() ? get_post_type() : '';
-    $sidebar_name = get_theme_mod('_ferret_widget_default_view_' . $type, 'master-sidebar');
-    dynamic_sidebar($sidebar_name);
-
-}

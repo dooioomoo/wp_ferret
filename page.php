@@ -5,11 +5,13 @@
  */
 
 get_header();
-
 ?>
-
+<div class="container">
+    <?php if ( _ferret_check_widget() )echo 'yes';?>
+</div>
 
 <?php
-_ferret_display_widget_in_post_type();
+    _ferret_display_widget();
+
 get_footer();
 

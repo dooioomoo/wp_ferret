@@ -24,6 +24,7 @@ function _ferret_get_all_sidebar()
 {
     global $wp_registered_sidebars;
     $allsidebar = array();
+    $allsidebar['none'] = __('no sidebar','_ferret');
     foreach ( $wp_registered_sidebars as $sidebar ) {
         $allsidebar[$sidebar['id']] = $sidebar['name'];
     }
@@ -63,3 +64,33 @@ function _ferret_get_all_posttype()
 function _ferret_is_frontpage() {
     return ( is_front_page() && ! is_home() );
 }
+
+/**
+ * widget helper
+ */
+if ( !function_exists('_ferret_display_widget') ):
+
+    function _ferret_display_widget()
+    {
+        global $post;
+        $val = ($val = get_post_meta($post->ID, "_ferret_display_post_sidebar", true)) ? $val : get_theme_mod('_ferret_widget_default_view_' . get_post_type(), 'master-sidebar');
+        if ( $val != 'none' )
+            dynamic_sidebar($val);
+
+    }
+endif;
+
+if ( !function_exists('_ferret_check_widget') ):
+
+    function _ferret_check_widget()
+    {
+        global $post;
+        $val = ($val = get_post_meta($post->ID, "_ferret_display_post_sidebar", true)) ? $val : get_theme_mod('_ferret_widget_default_view_' . get_post_type(), 'master-sidebar');
+        if ( $val != 'none' ):
+            return true;
+        else:
+            return false;
+        endif;
+
+    }
+endif;

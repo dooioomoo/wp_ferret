@@ -49,5 +49,5 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+_ferret_display_widget();
 get_footer();

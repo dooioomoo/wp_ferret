@@ -10,7 +10,7 @@ get_header();
 
 	<div id="primary" class="content-area col-md-12">
 		<main id="main" class="site-main">
-
+            <?php do_action( 'underscoresme_print_form' ); ?>
 		<?php
 		while ( have_posts() ) :
 			the_post();
