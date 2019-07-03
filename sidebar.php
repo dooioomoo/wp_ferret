@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package ryanblog
+ * @package _ferret
  */
 
 if ( ! is_active_sidebar( 'master-sidebar' ) ) {

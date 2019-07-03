@@ -2,7 +2,7 @@
 /**
  * Template Name:  FRONTPAGE TEMPLATE
  *
- * @package ryanblog
+ * @package _ferret
  */
 
 get_header();
