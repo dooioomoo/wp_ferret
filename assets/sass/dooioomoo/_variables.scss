@@ -20,7 +20,7 @@ $menuhoverbg: $primary;
 $menufontcolor: $white;
 $menufonthovercolor: $warning;
 $menubuttonsize: 50px;
-$menubuttonradius: 5px;
+$menubuttonradius: $btn-border-radius;
 
 //container
 $content-main-sidebar-pdding-top: 32px;

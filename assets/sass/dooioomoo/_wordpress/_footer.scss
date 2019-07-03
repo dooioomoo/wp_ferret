@@ -7,10 +7,11 @@
   background: $footer-background;
   color: $footer-color;
 
-  a{
-    color:$footer-link-color;
-    &:hover{
-      color:$footer-color;
+  a {
+    color: $footer-link-color;
+
+    &:hover {
+      color: $footer-color;
     }
   }
 
@@ -20,3 +21,19 @@
 }
 
 
+@include media-breakpoint-down(md) {
+  .site-footer {
+
+    a {
+
+      &:hover {
+
+      }
+    }
+
+    .site-info {
+      text-align: center;
+      font-size: .875rem;
+    }
+  }
+}

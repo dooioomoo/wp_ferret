@@ -16,12 +16,29 @@
     }
   }
 
+
   .sidebar {
     padding-left: $content-main-sidebar-gutter;
     padding-top: $content-main-sidebar-pdding-top;
 
     .sidebar-wrap {
       flex: auto;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  #primary.content-area {
+
+    .site-main {
+
+      &.main-has-sidebar {
+        padding-right: $grid-gutter-width / 2;
+      }
+    }
+
+    .sidebar {
+      padding-left: $grid-gutter-width / 2;
     }
   }
 }
