@@ -5,6 +5,10 @@ h1, h2, h3, h4, h5, h6,
     color: $primary;
     font-family: 'AxisStd-ExtraLight';
   }
+  
+  &.entry-title{
+    font-family: 'AxisStd-ExtraLight';
+  }
 }
 
 label {
