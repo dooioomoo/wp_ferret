@@ -1,0 +1,28 @@
+body {
+  &.home {
+    #primary.content-area {
+      .site-main {
+        padding-top: 0;
+
+        .page.hentry {
+          padding-top: 0 !important;
+        }
+      }
+    }
+  }
+}
+
+#masthead {
+  .site-branding {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    .site-logo {
+      .custom-logo-link {
+        max-height: 80px;
+        display: block;
+        overflow: hidden;
+      }
+    }
+  }
+}
