@@ -5,7 +5,7 @@
  */
 
 add_action('widgets_init', '_ferret_widgets_init');
-
+add_filter( 'widget_title', '_ferret_html_widget_title' );
 /**
  * widget function
  */
@@ -40,4 +40,17 @@ function _ferret_widgets_init()
         'before_title'  => '<h2 class="widget-title">',
         'after_title'   => '</h2>',
     ));
+}
+
+/**
+ * @param $title
+ * @return mixed
+ * use [small] [/small] conver to <small> </small>
+ */
+function _ferret_html_widget_title( $title ) {
+    //HTML tag opening/closing brackets
+    $title = str_replace( '[', '<', $title );
+    $title = str_replace( '[/', '</', $title );
+    $title = str_replace( ']', '>', $title );
+    return $title;
 }
