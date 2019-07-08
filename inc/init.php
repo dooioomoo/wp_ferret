@@ -26,7 +26,7 @@ require_once(___ferret_theme_path__ . '/inc/template/template.php');
 require_once(___ferret_theme_path__ . '/inc/template/template-customize.php');
 require_once(___ferret_theme_path__ . '/inc/template/template-tags.php');
 
-require_once(___ferret_theme_path__ . '/inc/woocommerce/_ferrt_shop.php');
+require_once(___ferret_theme_path__ . '/inc/woocommerce/_ferret_shop.php');
 
 if ( class_exists('WooCommerce') ) {
     require_once(___ferret_theme_path__ . '/inc/woocommerce/woocommerce.php');
