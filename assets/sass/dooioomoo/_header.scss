@@ -16,5 +16,14 @@
   .site-branding{
     padding-top:$heading-top;
     padding-bottom:$heading-bottom;
+
+    .site-branding-text{
+      .widget{
+        margin-bottom:0!important;
+        p{
+          margin-bottom:0;
+        }
+      }
+    }
   }
 }
