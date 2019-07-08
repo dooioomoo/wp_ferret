@@ -7,6 +7,7 @@
 
 get_header();
 ?>
+    <?php do_action( 'underscoresme_print_form');?>
     <div id="primary" class="content-area">
         <div class="row">
             <?php

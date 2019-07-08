@@ -14,7 +14,8 @@
             </div>
             <div class="col-md-8">
                 <div class="site-branding-text">
-                    <?php if ( _ferret_is_frontpage() ) : ?>
+                    <?php if(!is_active_sidebar('header-sidebar')):?>
+                    <?php if ( lucky_is_frontpage() ) : ?>
                         <h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>"
                                                   rel="home"><?php bloginfo('name'); ?></a></h1>
                     <?php else : ?>
@@ -29,6 +30,10 @@
                         ?>
                         <p class="site-description"><?php echo $description; ?></p>
                     <?php endif; ?>
+                    <?php else:
+                        dynamic_sidebar('header-sidebar');
+                        ?>
+                    <?php endif;?>
                 </div><!-- .site-branding-text -->
             </div>
         </div>
