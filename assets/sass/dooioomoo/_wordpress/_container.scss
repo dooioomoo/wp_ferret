@@ -7,12 +7,11 @@
   min-height: 600px;
 
   .site-main {
-    padding-top: $content-main-sidebar-pdding-top;
+    padding-top: $content-main-sidebar-padding-top;
 
     .site-main-wrap {
       .page.hentry {
-        padding-left: 0;
-        padding-right: 0;
+        padding: 0;
       }
     }
         
@@ -26,7 +25,7 @@
 
   .sidebar {
     padding-left: $content-main-sidebar-gutter;
-    padding-top: $content-main-sidebar-pdding-top;
+    padding-top: $content-main-sidebar-padding-top;
 
     .sidebar-wrap {
       flex: auto;
