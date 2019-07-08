@@ -9,6 +9,13 @@
   .site-main {
     padding-top: $content-main-sidebar-pdding-top;
 
+    .site-main-wrap {
+      .page.hentry {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+        
     &.main-has-sidebar {
       padding-right: $content-main-sidebar-gutter;
       border-right: 1px solid #eee;
