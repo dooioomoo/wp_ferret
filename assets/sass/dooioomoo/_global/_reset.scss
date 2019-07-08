@@ -4,3 +4,6 @@ img {
   width: auto\9;
 }
 
+@each $color, $value in $theme-colors {
+  @include bg-variants(".bg-#{$color}", $value);
+}
