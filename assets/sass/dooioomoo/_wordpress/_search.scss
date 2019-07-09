@@ -1,0 +1,37 @@
+.search-form {
+  display: flex;
+  flex: 1 0 auto;
+  height: 38px;
+  align-items: center;
+
+  label {
+    display: block;
+    width: 100%;
+  }
+}
+
+.search-lg {
+  .search-form {
+    height: 55px;
+    align-items: stretch;
+
+    label {
+      padding: 0;
+
+      input {
+        height: 100%;
+        flex: 1;
+        font-size: 22px;
+        border-radius: 10px 0 0 10px;
+        color: $primary;
+        font-weight: lighter;
+      }
+    }
+
+    input[type=submit] {
+      min-width: 100px;
+      border-radius: 0 10px 10px 0;
+      font-size: 28px;
+    }
+  }
+}
