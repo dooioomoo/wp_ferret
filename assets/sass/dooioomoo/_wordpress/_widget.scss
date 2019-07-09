@@ -1,4 +1,5 @@
 @import 'widgets/menu';
+@import 'widgets/vc_toggle';
 
 .widget {
   margin-bottom: 30px;
@@ -23,15 +24,17 @@
   }
 
   .widget-title {
-    text-align: center;
-    padding-right: 10px;
-    padding-top: 0;
-    padding-bottom: 0;
+    text-align: left;
     line-height: 1.3rem;
     position: relative;
     margin-bottom: 20px;
     box-sizing: border-box;
     margin-top: 0;
+    font-size: 1em;
+    color: #111;
+    border-bottom: 2px dashed #eee;
+    padding: 15px 0;
+    font-weight: 700;
     
     small {
       margin-left: 30px;
