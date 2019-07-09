@@ -123,6 +123,11 @@ function _ferret_shop_info_html($post)
             <input type="text" name="_ferret_shop_info__ferret_shop_jancode" id="_ferret_shop_info__ferret_shop_jancode"
                    value="<?php echo _ferret_shop_info_get_meta('_ferret_shop_info__ferret_shop_jancode'); ?>">
         </p>
+        <p style="margin-right:20px;">
+            <label for="_ferret_shop_info__ferret_shop_strong"><?php _e('強化', '_ferret'); ?></label><br>
+            <input type="checkbox" name="_ferret_shop_info__ferret_shop_strong" id="_ferret_shop_info__ferret_shop_strong"
+                   value="yes" <?php echo ((_ferret_shop_info_get_meta('_ferret_shop_info__ferret_shop_strong')=='yes') ? 'checked="checked"': '');?>/>
+        </p>
     </div>
     <?php
 }
