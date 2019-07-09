@@ -272,6 +272,55 @@ add_action('manage__ferret_shop_posts_custom_column', '_ferret_shop_custom__ferr
 function _ferret_shop_custom__ferret_shop_column($column, $post_id)
 {
     ?>
+
+    <?php
+    switch ($column) {
+
+        case 'post_thumbs' :
+            echo the_post_thumbnail('featured-thumbnail');
+            break;
+
+        case 'post_mark' :
+            if (get_post_meta($post_id, '_ferret_shop_info__ferret_shop_strong', true) == 'yes'):
+                echo '<span id="_ferret_shop_strong_data-' . $post_id . '" data-check="yes" style="display:inline-block;background:orange;color:#fff;font-size:9pt;padding:3px 5px;border-radius:3px;">' . __('強化', '_ferret') . '</span>';
+            endif;
+            break;
+
+        case 'post_price' :
+            echo get_post_meta($post_id, '_ferret_shop_info__ferret_shop_price', true);
+            break;
+
+    }
+}
+
+add_action('quick_edit_custom_box', '_ferret_shop_add_quick_edit', 10, 2);
+
+function _ferret_shop_add_quick_edit($column_name, $post_type)
+{
+    if ($column_name != 'post_mark') return;
+    wp_nonce_field('__ferret_shop_info_nonce', '_ferret_shop_info_nonce');
+    ?>
+    <fieldset class="inline-edit-col-right">
+        <div class="inline-edit-col">
+            <label class="inline-edit-tags" style="text-align: left;line-height:35px;">
+                <input type="checkbox" name="_ferret_shop_info__ferret_shop_strong" id="_ferret_shop_info__ferret_shop_strong"
+                       value="yes"/>
+                <span class="title"><?php _e('強化', '_ferret'); ?></span>
+            </label>
+        </div>
+    </fieldset>
+    <?php
+}
+
+add_action('admin_head', '_ferret_shop_quick_edit_style');
+function _ferret_shop_quick_edit_style()
+{
+    global $current_screen;
+
+    if ('_ferret_shop' != $current_screen->post_type) {
+        return;
+    }
+    ?>
     <style>
         .column-post_thumbs {
             max-width: 120px;
@@ -303,40 +352,37 @@ function _ferret_shop_custom__ferret_shop_column($column, $post_id)
         }
     </style>
     <?php
-    switch ($column) {
-
-        case 'post_thumbs' :
-            echo the_post_thumbnail('featured-thumbnail');
-            break;
-
-        case 'post_mark' :
-            if (get_post_meta($post_id, '_ferret_shop_info__ferret_shop_strong', true) == 'yes'):
-                echo '<span style="display:inline-block;background:orange;color:#fff;font-size:9pt;padding:3px 5px;border-radius:3px;">' . __('強化', '_ferret') . '</span>';
-            endif;
-            break;
-
-        case 'post_price' :
-            echo get_post_meta($post_id, '_ferret_shop_info__ferret_shop_price', true);
-            break;
-
-    }
 }
 
-add_action('quick_edit_custom_box', '_ferret_shop_add_quick_edit', 10, 2);
-
-function _ferret_shop_add_quick_edit($column_name, $post_type)
+add_action('admin_footer', '_ferret_shop_quick_edit_javascript');
+function _ferret_shop_quick_edit_javascript()
 {
-    if ($column_name != 'post_mark') return;
-    wp_nonce_field('__ferret_shop_info_nonce', '_ferret_shop_info_nonce');
+    global $current_screen;
+
+    if ('_ferret_shop' != $current_screen->post_type) {
+        return;
+    }
     ?>
-    <fieldset class="inline-edit-col-right">
-        <div class="inline-edit-col">
-            <label class="inline-edit-tags" style="text-align: left;line-height:35px;">
-                <input type="checkbox" name="_ferret_shop_info__ferret_shop_strong" id="_ferret_shop_info__ferret_shop_strong"
-                       value="yes" <?php echo((_ferret_shop_info_get_meta('_ferret_shop_info__ferret_shop_strong') == 'yes') ? 'checked="checked"' : ''); ?>/>
-                <span class="title"><?php _e('強化', '_ferret'); ?></span>
-            </label>
-        </div>
-    </fieldset>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            var $wp_inline_edit = inlineEditPost.edit;
+
+            inlineEditPost.edit = function (id) {
+                $wp_inline_edit.apply(this, arguments);
+                var $post_id = 0;
+                if (typeof (id) == 'object')
+                    $post_id = parseInt(this.getId(id));
+                if ($post_id > 0) {
+                    var $edit_row = $('#edit-' + $post_id);
+                    var $data_row = $('#_ferret_shop_strong_data-' + $post_id);
+                    if ($data_row.data('check') === 'yes') {
+                        $edit_row.find('input[name="_ferret_shop_info__ferret_shop_strong"]').attr("checked", true);
+                    } else {
+                        $edit_row.find('input[name="_ferret_shop_info__ferret_shop_strong"]').attr("checked", false);
+                    }
+                }
+            };
+        });
+    </script>
     <?php
 }
