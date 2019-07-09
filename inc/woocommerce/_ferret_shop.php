@@ -97,22 +97,20 @@ function _ferret_shop_move_metabox_after_title()
 }
 
 
-
-
 function _ferret_shop_info_html($post)
 {
     wp_nonce_field('__ferret_shop_info_nonce', '_ferret_shop_info_nonce'); ?>
     <div style="display:flex;align-items: center;justify-content: flex-start;">
-    <p style="margin-right:20px;">
-        <label for="_ferret_shop_info__ferret_shop_price"><?php _e('販売価格', '_ferret'); ?></label><br>
-        <input type="text" name="_ferret_shop_info__ferret_shop_price" id="_ferret_shop_info__ferret_shop_price"
-               value="<?php echo _ferret_shop_info_get_meta('_ferret_shop_info__ferret_shop_price'); ?>">
-    </p>
-    <p style="margin-right:20px;">
-        <label for="_ferret_shop_info__ferret_shop_stock"><?php _e('数量', '_ferret'); ?></label><br>
-        <input type="text" name="_ferret_shop_info__ferret_shop_stock" id="_ferret_shop_info__ferret_shop_stock"
-               value="<?php echo _ferret_shop_info_get_meta('_ferret_shop_info__ferret_shop_stock'); ?>">
-    </p>
+        <p style="margin-right:20px;">
+            <label for="_ferret_shop_info__ferret_shop_price"><?php _e('販売価格', '_ferret'); ?></label><br>
+            <input type="text" name="_ferret_shop_info__ferret_shop_price" id="_ferret_shop_info__ferret_shop_price"
+                   value="<?php echo _ferret_shop_info_get_meta('_ferret_shop_info__ferret_shop_price'); ?>">
+        </p>
+        <p style="margin-right:20px;">
+            <label for="_ferret_shop_info__ferret_shop_stock"><?php _e('数量', '_ferret'); ?></label><br>
+            <input type="text" name="_ferret_shop_info__ferret_shop_stock" id="_ferret_shop_info__ferret_shop_stock"
+                   value="<?php echo _ferret_shop_info_get_meta('_ferret_shop_info__ferret_shop_stock'); ?>">
+        </p>
         <p style="margin-right:20px;">
             <label for="_ferret_shop_info__ferret_shop_number"><?php _e('商品番号', '_ferret'); ?></label><br>
             <input type="text" name="_ferret_shop_info__ferret_shop_number" id="_ferret_shop_info__ferret_shop_number"
@@ -126,7 +124,7 @@ function _ferret_shop_info_html($post)
         <p style="margin-right:20px;">
             <label for="_ferret_shop_info__ferret_shop_strong"><?php _e('強化', '_ferret'); ?></label><br>
             <input type="checkbox" name="_ferret_shop_info__ferret_shop_strong" id="_ferret_shop_info__ferret_shop_strong"
-                   value="yes" <?php echo ((_ferret_shop_info_get_meta('_ferret_shop_info__ferret_shop_strong')=='yes') ? 'checked="checked"': '');?>/>
+                   value="yes" <?php echo((_ferret_shop_info_get_meta('_ferret_shop_info__ferret_shop_strong') == 'yes') ? 'checked="checked"' : ''); ?>/>
         </p>
     </div>
     <?php
@@ -147,14 +145,19 @@ function _ferret_shop_info_save($post_id)
         update_post_meta($post_id, '_ferret_shop_info__ferret_shop_number', esc_attr($_POST['_ferret_shop_info__ferret_shop_number']));
     if (isset($_POST['_ferret_shop_info__ferret_shop_jancode']))
         update_post_meta($post_id, '_ferret_shop_info__ferret_shop_jancode', esc_attr($_POST['_ferret_shop_info__ferret_shop_jancode']));
+    if (isset($_POST['_ferret_shop_info__ferret_shop_strong']) && $_POST['_ferret_shop_info__ferret_shop_strong'] == 'yes'):
+        update_post_meta($post_id, '_ferret_shop_info__ferret_shop_strong', esc_attr($_POST['_ferret_shop_info__ferret_shop_strong']));
+    else:
+        update_post_meta($post_id, '_ferret_shop_info__ferret_shop_strong', Null);
+    endif;
 
 }
 
 add_action('save_post', '_ferret_shop_info_save');
 
 /*
-	Usage: _ferret_shop_info_get_meta( '_ferret_shop_info__ferret_shop_price' )
-	Usage: _ferret_shop_info_get_meta( '_ferret_shop_info__ferret_shop_stock' )
+    Usage: _ferret_shop_info_get_meta( '_ferret_shop_info__ferret_shop_price' )
+    Usage: _ferret_shop_info_get_meta( '_ferret_shop_info__ferret_shop_stock' )
 */
 function _ferret_shop_create_portfolio_taxonomies()
 {
@@ -188,44 +191,152 @@ function _ferret_shop_create_portfolio_taxonomies()
 add_action('init', '_ferret_shop_create_portfolio_taxonomies', 0);
 
 
-function _ferret_shop_cpt_generating_rule($wp_rewrite) {
+function _ferret_shop_cpt_generating_rule($wp_rewrite)
+{
     $rules = array();
-    $terms = get_terms( array(
-        'taxonomy' => '_ferret_shop_categories',
+    $terms = get_terms(array(
+        'taxonomy'   => '_ferret_shop_categories',
         'hide_empty' => false,
-    ) );
+    ));
 
     $post_type = '_ferret_shop';
     foreach ($terms as $term) {
 
-        $rules['ShopCategory/' . $term->slug . '/([^/]*)$'] = 'index.php?post_type=' . $post_type. '&'.$post_type.'=$matches[1]&name=$matches[1]';
+        $rules['ShopCategory/' . $term->slug . '/([^/]*)$'] = 'index.php?post_type=' . $post_type . '&' . $post_type . '=$matches[1]&name=$matches[1]';
 
     }
     // merge with global rules
     $wp_rewrite->rules = $rules + $wp_rewrite->rules;
 }
+
 add_filter('generate_rewrite_rules', '_ferret_shop_cpt_generating_rule');
 
 
-function _ferret_shop_change_link( $permalink, $post ) {
+function _ferret_shop_change_link($permalink, $post)
+{
 
-    if( $post->post_type == '_ferret_shop' ) {
-        $resource_terms = get_the_terms( $post, '_ferret_shop_categories' );
-        $term_slug = '';
-        if( ! empty( $resource_terms ) ) {
-            foreach ( $resource_terms as $term ) {
+    if ($post->post_type == '_ferret_shop') {
+        $resource_terms = get_the_terms($post, '_ferret_shop_categories');
+        $term_slug      = '';
+        if (!empty($resource_terms)) {
+            foreach ($resource_terms as $term) {
                 // The featured resource will have another category which is the main one
-                if( $term->slug == 'featured' ) {
+                if ($term->slug == 'featured') {
                     continue;
                 }
                 $term_slug = $term->slug;
                 break;
             }
         }
-        $permalink = get_home_url() ."/ShopCategory/" . $term_slug . '/' . $post->post_name;
+        $permalink = get_home_url() . "/ShopCategory/" . $term_slug . '/' . $post->post_name;
     }
     return $permalink;
 }
-add_filter('post_type_link',"_ferret_shop_change_link",10,2);
 
+add_filter('post_type_link', "_ferret_shop_change_link", 10, 2);
 
+/**
+ * Add the custom columns to the book post type:
+ */
+
+add_filter('manage__ferret_shop_posts_columns', '_ferret_shop_set_custom_edit_columns');
+
+function _ferret_shop_set_custom_edit_columns($columns)
+{
+
+    unset($columns['author']);
+    unset($columns['tags']);
+
+    $columns['post_thumbs'] = __('Featured Image');
+    $columns['post_mark']   = __('強化', '_ferret');
+    $columns['post_price']  = __('価格', '_ferret');
+
+    $new_columns = array();
+    $order       = array(
+        'cb',
+        'post_thumbs',
+        'title',
+        'post_mark',
+        'post_price',
+        'taxonomy-_ferret_shop_categories',
+        'date'
+    );
+    foreach ($order as $key) {
+        $new_columns[$key] = $columns[$key];
+    }
+    return $new_columns;
+}
+
+// Add the data to the custom columns for the book post type:
+add_action('manage__ferret_shop_posts_custom_column', '_ferret_shop_custom__ferret_shop_column', 10, 2);
+function _ferret_shop_custom__ferret_shop_column($column, $post_id)
+{
+    ?>
+    <style>
+        .column-post_thumbs {
+            max-width: 120px;
+            display: table-cell;
+            width: 120px;
+            text-align: center;
+            vertical-align: middle !important;
+        }
+
+        .column-post_thumbs img {
+            width: 100px;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .manage-column, .manage-column a {
+            text-align: center !important;
+            display: table-cell;
+            vertical-align: middle !important;
+        }
+
+        .manage-column a {
+            display: inline-block !important;
+        }
+
+        #the-list td {
+            vertical-align: middle !important;
+            text-align: center !important;
+        }
+    </style>
+    <?php
+    switch ($column) {
+
+        case 'post_thumbs' :
+            echo the_post_thumbnail('featured-thumbnail');
+            break;
+
+        case 'post_mark' :
+            if (get_post_meta($post_id, '_ferret_shop_info__ferret_shop_strong', true) == 'yes'):
+                echo '<span style="display:inline-block;background:orange;color:#fff;font-size:9pt;padding:3px 5px;border-radius:3px;">' . __('強化', '_ferret') . '</span>';
+            endif;
+            break;
+
+        case 'post_price' :
+            echo get_post_meta($post_id, '_ferret_shop_info__ferret_shop_price', true);
+            break;
+
+    }
+}
+
+add_action('quick_edit_custom_box', '_ferret_shop_add_quick_edit', 10, 2);
+
+function _ferret_shop_add_quick_edit($column_name, $post_type)
+{
+    if ($column_name != 'post_mark') return;
+    wp_nonce_field('__ferret_shop_info_nonce', '_ferret_shop_info_nonce');
+    ?>
+    <fieldset class="inline-edit-col-right">
+        <div class="inline-edit-col">
+            <label class="inline-edit-tags" style="text-align: left;line-height:35px;">
+                <input type="checkbox" name="_ferret_shop_info__ferret_shop_strong" id="_ferret_shop_info__ferret_shop_strong"
+                       value="yes" <?php echo((_ferret_shop_info_get_meta('_ferret_shop_info__ferret_shop_strong') == 'yes') ? 'checked="checked"' : ''); ?>/>
+                <span class="title"><?php _e('強化', '_ferret'); ?></span>
+            </label>
+        </div>
+    </fieldset>
+    <?php
+}
