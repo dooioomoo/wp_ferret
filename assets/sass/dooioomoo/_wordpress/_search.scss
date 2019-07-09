@@ -22,7 +22,7 @@
         height: 100%;
         flex: 1;
         font-size: 22px;
-        border-radius: 10px 0 0 10px;
+        border-radius: 6px 0 0 6px;
         color: $primary;
         font-weight: lighter;
       }
@@ -30,8 +30,9 @@
 
     input[type=submit] {
       min-width: 100px;
-      border-radius: 0 10px 10px 0;
-      font-size: 28px;
+      border-radius: 0 6px 6px 0;
+      font-size: 22px;
+      font-weight: 300;
     }
   }
 }
