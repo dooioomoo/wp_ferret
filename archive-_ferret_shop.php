@@ -20,6 +20,7 @@ get_header();
             do_action('_ferret_get_main_col'); ?>
             <div class="row">
             <?php
+            $paged = (get_query_var('page')) ? absint(get_query_var('page')) : 1;
         $args = array(
                 'post_type'=>array('posts', '_ferret_shop'),
             'paged' => $paged,
