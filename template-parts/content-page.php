@@ -15,7 +15,7 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<?php  lucky_post_thumbnail(); ?>
+	<?php  _ferret_post_thumbnail(); ?>
     <?php endif; ?>
 
 	<div class="entry-content">

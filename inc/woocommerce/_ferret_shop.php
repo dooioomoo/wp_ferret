@@ -359,7 +359,7 @@ function _ferret_shop_quick_edit_javascript()
 {
     global $current_screen;
 
-    if ('_ferret_shop' != $current_screen->post_type) {
+    if ('_ferret_shop' != $current_screen->post_type || $current_screen->base!='edit') {
         return;
     }
     ?>
