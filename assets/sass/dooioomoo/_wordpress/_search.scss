@@ -2,11 +2,23 @@
   display: flex;
   flex: 1 0 auto;
   height: 38px;
-  align-items: center;
+  align-items: stretch;
 
   label {
     display: block;
     width: 100%;
+    padding: 0;
+  }
+
+  input[type=search] {
+    height: 100%;
+    flex: 1;
+    border-radius: 6px 0 0 6px;
+  }
+
+  input[type=submit] {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
@@ -18,9 +30,7 @@
     label {
       padding: 0;
 
-      input {
-        height: 100%;
-        flex: 1;
+      input[type=search] {
         font-size: 22px;
         border-radius: 6px 0 0 6px;
         color: $primary;
