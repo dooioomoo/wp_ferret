@@ -10,6 +10,7 @@ article {
   &.hentry {
     padding: 40px 20px;
     margin-bottom: 60px;
+    width: 100%;
     //border-bottom: 5px dotted #eeeeee;
 
     &:last-child {
@@ -107,7 +108,9 @@ article {
 @include media-breakpoint-down(md) {
   article {
     &.hentry {
-      padding: 40px 0;
+      //padding: 40px $grid-gutter-width;
+      padding-top: 40px;
+      padding-bottom: 40px;
     }
   }
 }

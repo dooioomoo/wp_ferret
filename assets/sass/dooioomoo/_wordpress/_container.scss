@@ -14,7 +14,7 @@
         padding: 0;
       }
     }
-        
+
     &.main-has-sidebar {
       padding-right: $content-main-sidebar-gutter;
       border-right: 1px solid #eee;
@@ -40,6 +40,8 @@
 
       &.main-has-sidebar {
         padding-right: $grid-gutter-width / 2;
+        border-right: 0 !important;
+        border-left: 0 !important;
       }
     }
 
