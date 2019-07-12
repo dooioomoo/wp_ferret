@@ -45,6 +45,18 @@
 
 }
 
+body.page,body.single {
+  #primary.content-area {
+    .site-main {
+      .site-main-wrap {
+        .hentry {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
 @include media-breakpoint-down(md) {
   #primary.content-area {
 
