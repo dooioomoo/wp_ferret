@@ -20,7 +20,7 @@ if ( !function_exists('_ferret_get_main_col') ):
     function _ferret_get_main_col()
     {
         if ( _ferret_check_widget() ):
-            $col = 'main-has-sidebar col-md-8';
+            $col = 'main-has-sidebar col-md-8 order-1' . ' ' . _ferret_get_widget_col();
         else:
             $col = 'col-md-12';
         endif;
@@ -43,7 +43,7 @@ if ( !function_exists('_ferret_get_sidebar_col') ):
     function _ferret_get_sidebar_col()
     {
         if ( _ferret_check_widget() ):
-            echo '<section class="sidebar col-md-4">';
+            echo '<section class="sidebar col-md-4 order-2">';
             print_r('<div class="sidebar-wrap">');
             _ferret_display_widget();
             print_r('</div>');

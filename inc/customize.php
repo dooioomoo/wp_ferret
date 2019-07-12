@@ -110,6 +110,7 @@ function _ferret_create_title_tag()
         echo ' - ';
         bloginfo('description');
     } else {
+
         if ( function_exists('is_tag') && is_tag() ) {
             echo __('Tag Archive for') . ' &quot;' . $tag . '&quot; - ';
         } elseif ( is_archive() ) {
@@ -125,6 +126,8 @@ function _ferret_create_title_tag()
         } else {
             bloginfo('name');
         }
+
+        echo bloginfo('name');
     }
     echo '</title>' . "\n";
 }

@@ -11,7 +11,7 @@
 
     .site-main-wrap {
       .page.hentry {
-        padding: 0;
+        //padding: 0;
       }
     }
 
@@ -19,18 +19,30 @@
       padding-right: $content-main-sidebar-gutter;
       border-right: 1px solid #eee;
       box-sizing: border-box;
+
+      + .sidebar {
+        padding-left: $content-main-sidebar-gutter;
+        padding-top: $content-main-sidebar-padding-top;
+
+        .sidebar-wrap {
+          flex: auto;
+        }
+      }
+
+      &.order-right {
+        padding-right: $grid-gutter-width / 2;
+        padding-left: $content-main-sidebar-gutter;
+        border-right: 0;
+        border-left: 1px solid #eee;
+
+        + .sidebar {
+          padding-left: $grid-gutter-width / 2;
+          padding-right: $content-main-sidebar-gutter;
+        }
+      }
     }
   }
 
-
-  .sidebar {
-    padding-left: $content-main-sidebar-gutter;
-    padding-top: $content-main-sidebar-padding-top;
-
-    .sidebar-wrap {
-      flex: auto;
-    }
-  }
 }
 
 @include media-breakpoint-down(md) {
@@ -39,14 +51,18 @@
     .site-main {
 
       &.main-has-sidebar {
-        padding-right: $grid-gutter-width / 2;
+        padding-right: $grid-gutter-width / 2 !important;
+        padding-left: $grid-gutter-width / 2 !important;
         border-right: 0 !important;
         border-left: 0 !important;
+
+        + .sidebar {
+          padding-left: $grid-gutter-width / 2;
+          padding-right: $grid-gutter-width / 2;
+        }
       }
     }
 
-    .sidebar {
-      padding-left: $grid-gutter-width / 2;
-    }
+
   }
 }

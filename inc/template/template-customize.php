@@ -59,6 +59,27 @@ endif;
  */
 function _ferret_widget_default_view_by_posttype( $wp_customize )
 {
+    $wp_customize->add_setting(
+        '_ferret_widget_default_order_master', array(
+                                                   'default' => 'right',
+                                                   'transport' => 'postMessage',
+                                               )
+    );
+    $wp_customize->add_control(new WP_Customize_Control(
+                                   $wp_customize,
+                                   '_ferret_widget_default_order_master',
+                                   array(
+                                       'label' => __('Default sidebar for master', '_ferret'),
+                                       'section' => '_ferret_theme_options_widget_section',
+                                       'settings' => '_ferret_widget_default_order_master',
+                                       'type' => 'select',
+                                       'choices' => array(
+                                           'right' => __('right', '_ferret'),
+                                           'left' => __('left', '_ferret'),
+                                       )
+                                   )
+                               )
+    );
     $post_type = _ferret_get_all_posttype();
     foreach ( $post_type as $index => $type ) {
         $wp_customize->add_setting(
@@ -79,12 +100,33 @@ function _ferret_widget_default_view_by_posttype( $wp_customize )
                                        )
                                    )
         );
+        $wp_customize->add_setting(
+            '_ferret_widget_default_order_' . $type, array(
+                                                       'default' => 'right',
+                                                       'transport' => 'postMessage',
+                                                   )
+        );
+        $wp_customize->add_control(new WP_Customize_Control(
+                                       $wp_customize,
+                                       '_ferret_widget_default_order_' . $type,
+                                       array(
+                                           'section' => '_ferret_theme_options_widget_section',
+                                           'settings' => '_ferret_widget_default_order_' . $type,
+                                           'type' => 'select',
+                                           'choices' => array(
+                                               'right' => __('right', '_ferret'),
+                                               'left' => __('left', '_ferret'),
+                                           )
+                                       )
+                                   )
+        );
     }
+
 }
 
 function _ferret_comment_form_change( $form )
 {
-    global $user_identity,$post_id;
+    global $user_identity, $post_id;
     $form['logged_in_as'] = '<p class="logged-in-as">' . sprintf(
         /* translators: 1: edit user link, 2: accessibility text, 3: user name, 4: logout URL */
             __('<a href="%1$s" aria-label="%2$s" class="btn btn-primary btn-lg">Logged in as %3$s</a>&nbsp;&nbsp;<a href="%4$s" class="btn btn-info btn-lg">Log out?</a>', '_ferret'),

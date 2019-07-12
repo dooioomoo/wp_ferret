@@ -81,13 +81,34 @@ if ( !function_exists('_ferret_display_widget') ):
     }
 endif;
 
+if ( !function_exists('_ferret_get_widget_col') ):
+
+    function _ferret_get_widget_col()
+    {
+        global $post;
+        if ( !empty($post->ID) ):
+            $css = get_theme_mod('_ferret_widget_default_order_' . get_post_type(), 'right');
+        else:
+            $css = get_theme_mod('_ferret_widget_default_order_master', 'right');
+        endif;
+
+        if ( $css == 'left' ):
+            $css = 'order-md-3 order-right';
+        else:
+            $css = '';
+        endif;
+
+        return $css;
+    }
+endif;
+
 if ( !function_exists('_ferret_check_widget') ):
 
     function _ferret_check_widget()
     {
         global $post;
         $val = (!empty($post->ID) and $val = get_post_meta($post->ID, "_ferret_display_post_sidebar", true)) ? $val : get_theme_mod('_ferret_widget_default_view_' . get_post_type(), 'master-sidebar');
-        if ( $val != 'none' and $val !='default' ):
+        if ( $val != 'none' and $val != 'default' ):
             return true;
         else:
             return false;
