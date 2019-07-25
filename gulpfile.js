@@ -1,6 +1,6 @@
 /*template:
 
-npm i -global gulp gulp-sass gulp-concat gulp-autoprefixer gulp-minify browser-sync child_process gulp-cssnano del gulp-rename gulp-eslint gulp-imagemin gulp-newer gulp-postcss webpack webpack-stream --save-dev
+npm i -global gulp gulp-sass gulp-plumber gulp-concat autoprefixer gulp-minify browser-sync child_process cssnano del gulp-rename gulp-eslint gulp-imagemin gulp-newer gulp-postcss webpack webpack-stream --save-dev
 
 
 */
