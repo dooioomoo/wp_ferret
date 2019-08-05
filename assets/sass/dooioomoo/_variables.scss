@@ -9,18 +9,24 @@ $global-font-size: 1rem;
 
 $line-height: 1.8;
 
-$heading-top: 2rem;
-$heading-bottom: 2rem;
-
+$heading-top: 1rem;
+$heading-bottom: 1rem;
+$heading-bg:#fffbdc;
 // primary navigation
 
-$menubg: $primary;
+$menubg: $gray-200;
+$submenubg: $black;
 $menufontsize: 15px;
 $menuhoverbg: $primary;
-$menufontcolor: $white;
-$menufonthovercolor: $warning;
+$menufontcolor: $black;
+$menufonthovercolor: $primary;
+$menufonthoverbgcolor: $black;
 $menubuttonsize: 50px;
 $menubuttonradius: $btn-border-radius;
+$submenupadding:5px 15px;
+$submenulinkcolor: $white;
+$submenuhovercolor: $primary;
+$submenuhoverbgcolor: rgba($gray-200,.3);
 
 //container
 $content-main-sidebar-padding-top: 32px;
