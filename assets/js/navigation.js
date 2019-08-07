@@ -4,6 +4,25 @@
  * Handles toggling the navigation menu for small screens and enables TAB key
  * navigation support for dropdown menus.
  */
+(function ($) {
+
+    var header = $('.site-branding');
+    var sticky = header.offset().top;
+
+    window.onscroll = function () {
+        stickyNavigation()
+    };
+
+    stickyNavigation = function () {
+        if (window.pageYOffset > sticky) {
+            header.addClass("sticky");
+        } else {
+            header.removeClass("sticky");
+        }
+    }
+})(jQuery);
+
+
 ( function() {
     var container, button, menu, links, i, len;
 
