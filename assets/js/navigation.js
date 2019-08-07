@@ -30,7 +30,7 @@
 
                 backToTop = function () {
                     var scrollTop = $(window).scrollTop();
-                    console.log(scrollTop > scrollTrigger);
+
                     if (scrollTop > scrollTrigger) {
                         $('#back-to-top').addClass('show');
                     } else {
