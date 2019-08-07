@@ -1,3 +1,13 @@
+@mixin awesomefont() {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+@mixin awesomefont-brands() {
+  font-family: "Font Awesome 5 Brands";
+  font-weight: 900;
+}
+
 @mixin box_shadow($value...) {
   -webkit-box-shadow: $value;
   -moz-box-shadow: $value;
@@ -53,4 +63,13 @@
       background-color: darken($color, 10%) !important;
     }
   }
+}
+
+@mixin bg-gradient($mastercolor,$seccolor) {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#004fa0+0,207ce5+100 */
+  background: $mastercolor !important; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, $mastercolor 0%, $seccolor 100%) !important; /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, $mastercolor 0%, $seccolor 100%) !important; /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, $mastercolor 0%, $seccolor 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$mastercolor', endColorstr='$seccolor', GradientType=1) !important; /* IE6-9 fallback on horizontal gradient */
 }
