@@ -3,7 +3,7 @@
  * _ferret's widget setting
  * @package _ferret
  */
-
+add_filter( 'widget_text', 'do_shortcode' );
 add_action('widgets_init', '_ferret_widgets_init');
 add_filter( 'widget_title', '_ferret_html_widget_title' );
 /**
