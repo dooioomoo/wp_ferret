@@ -4,22 +4,52 @@
  * Handles toggling the navigation menu for small screens and enables TAB key
  * navigation support for dropdown menus.
  */
+
 (function ($) {
 
-    var header = $('.site-branding');
-    var sticky = header.offset().top;
+    $(document).ready(function () {
 
-    window.onscroll = function () {
-        stickyNavigation()
-    };
+        var header = $('.site-branding');
+        var sticky = header.offset().top;
 
-    stickyNavigation = function () {
-        if (window.pageYOffset > sticky) {
-            header.addClass("sticky");
-        } else {
-            header.removeClass("sticky");
+        window.onscroll = function () {
+            stickyNavigation()
+        };
+
+        stickyNavigation = function () {
+            if (window.pageYOffset > sticky) {
+                header.addClass("sticky");
+            } else {
+                header.removeClass("sticky");
+            }
+        };
+
+        if ($('#back-to-top').length) {
+
+            var scrollTrigger = 100, // px
+
+                backToTop = function () {
+                    var scrollTop = $(window).scrollTop();
+                    console.log(scrollTop > scrollTrigger);
+                    if (scrollTop > scrollTrigger) {
+                        $('#back-to-top').addClass('show');
+                    } else {
+                        $('#back-to-top').removeClass('show');
+                    }
+                };
+            backToTop();
+            $(window).on('scroll', function () {
+                backToTop();
+            });
+            $('#back-to-top').on('click', function (e) {
+                e.preventDefault();
+                $('html,body').animate({
+                    scrollTop: 0
+                }, 700);
+            });
         }
-    }
+
+    });
 })(jQuery);
 
 
