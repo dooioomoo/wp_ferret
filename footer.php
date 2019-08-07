@@ -35,6 +35,6 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
-
+<a href="#" id="back-to-top" title="Back to top"><i class="fas fa-chevron-up"></i></a>
 </body>
 </html>
