@@ -1,0 +1,118 @@
+@include media-breakpoint-down(xs) {
+  body.home {
+    #masthead {
+      position: relative;
+    }
+  }
+  #masthead {
+    .site-branding {
+      .site-right-menu {
+        display: none;
+      }
+    }
+
+    .site-topbar {
+      text-align: center;
+      padding-top: 10px;
+
+      .links {
+
+      }
+
+      tel {
+        clear: both;
+        padding: 0;
+        margin: 0;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .tel-tag {
+          position: relative;
+          height: 0;
+          line-height: 0;
+          overflow: hidden;
+          display: none;
+
+
+        }
+
+        .tel-number {
+          font-size: 2rem;
+          font-weight: bold;
+          position: relative;
+
+          &::before {
+            content: "\f87b";
+            display: inline;
+            margin-right: 10px;
+            @include awesomefont();
+          }
+        }
+      }
+    }
+  }
+
+  #responsive-menu-container {
+    @include bg-gradient(#004FA0, #003770);
+    @include box_shadow(1px 1px 10px rgba($black, .3));
+
+    #responsive-menu-wrapper {
+      background: transparent !important;
+
+
+      #responsive-menu {
+        background: transparent !important;
+
+        .menu-item {
+          .responsive-menu-item-link {
+            background: transparent !important;
+            font-size: 1.25rem;
+            height: auto;
+            line-height: initial;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dotted rgba(255, 255, 255, .1);
+
+            &:hover {
+              background: rgba($black, .8) !important;
+              border-color: transparent;
+            }
+
+            .responsive-menu-subarrow {
+              background: transparent !important;
+              background-color: transparent !important;
+              border: none !important;
+            }
+
+            small {
+              display: block;
+              color: rgba($white, .6);
+              font-size: 9pt;
+              margin-top: 6px;
+            }
+          }
+
+          .responsive-menu-submenu {
+            background: rgba($black, .3);
+
+            .menu-item {
+              .responsive-menu-item-link {
+                font-size: 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  #back-to-top {
+    right: 15px !important;
+    bottom: 35px !important;
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 1rem;
+  }
+}
