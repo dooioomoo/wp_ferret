@@ -34,3 +34,10 @@
     }
   }
 }
+
+
+@each $color, $value in $theme-colors {
+  .text-#{$color} .fa {
+    color: $value !important;
+  }
+}
