@@ -58,7 +58,7 @@ module.exports = {
     },
     browserSync_start : function browserSync(done) {
         browsersync.init({
-            proxy  : "localhost:" + setting.port,
+            proxy  : setting.server + ":" + setting.port,
             baseDir: "./",
             open   : true,
             notify : false,
