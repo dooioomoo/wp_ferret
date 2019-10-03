@@ -270,6 +270,7 @@ $embed-responsive-aspect-ratios: join(
 // Font, line-height, and color for body text, headings, and more.
 
 // stylelint-disable value-keyword-case
+//$font-family-sans-serif: 'Montserrat', 'Mplus 1p', 'Hiragino Sans', 'Hiragino Kaku Gothic Pro', '游ゴシック' , '游ゴシック体' , YuGothic , 'Yu Gothic', 'ＭＳ ゴシック' , 'MS Gothic', sans-serif !default;
 $font-family-sans-serif: -apple-system, "Helvetica Neue", Helvetica, Arial, 'Hiragino Sans GB', "Microsoft YaHei", "Heiti SC", "WenQuanYi Micro Hei", "黑体", "宋体", sans-serif !default;
 //$font-family-sans-serif: -apple-system, SF UI Text, "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif !default;
 $font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
