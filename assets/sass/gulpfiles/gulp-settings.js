@@ -9,7 +9,7 @@ const images = assetFolder + 'images' + '/';
 const font = assetFolder + 'webfonts' + '/';
 
 module.exports = {
-    root       : './',
+    root       : '../../../',
     server     : server,
     port       : port,
     assetFolder: assetFolder,
