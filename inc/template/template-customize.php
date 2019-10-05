@@ -5,11 +5,10 @@
  */
 
 add_action('customize_register', '_ferret_template_customize_register');
-
 add_filter('comment_form_defaults', '_ferret_comment_form_change');
 
-if ( !function_exists('_ferret_template_customize_register') ):
-    function _ferret_template_customize_register( $wp_customize )
+if (!function_exists('_ferret_template_customize_register')):
+    function _ferret_template_customize_register($wp_customize)
     {
         /**
          * add default view for widget
@@ -28,42 +27,33 @@ if ( !function_exists('_ferret_template_customize_register') ):
             'panel' => '_ferret_theme_options', // Not typically needed.
         ));
 
-//        $wp_customize->add_setting(
-//            '_ferret_widget_default_view', array(
-//                                             'default' => 'master-sidebar',
-//                                             'transport' => 'postMessage',
-//                                         )
-//        );
-//        $wp_customize->add_control(new WP_Customize_Control(
-//                                       $wp_customize,
-//                                       '_ferret_widget_default_view',
-//                                       array(
-//                                           'label' => __('Default sidebar in all post type', '_ferret'),
-//                                           'section' => '_ferret_theme_options_widget_section',
-//                                           'settings' => '_ferret_widget_default_view',
-//                                           'type' => 'select',
-//                                           'choices' => _ferret_get_all_sidebar()
-//                                       )
-//                                   )
-//        );
-        _ferret_widget_default_view_by_posttype($wp_customize);
+        $wp_customize->add_section('_ferret_theme_options_loader_section', array(
+            'title' => __('Loader', '_ferret'),
+            'description' => __('set your page loader in here'),
+            'panel' => '_ferret_theme_options', // Not typically needed.
+        ));
+
+        _ferret_custom_default_view_by_posttype($wp_customize);
 
     }
 endif;
-
 
 /**
  * create default sidebar view by post type
  *
  * @param $wp_customize
  */
-function _ferret_widget_default_view_by_posttype( $wp_customize )
+function _ferret_custom_default_view_by_posttype($wp_customize)
 {
+
+    /***
+     * WIDGET
+     */
     $wp_customize->add_setting(
         '_ferret_widget_default_order_master', array(
-                                                   'default' => 'right',
-                                                   'transport' => 'postMessage',
-                                               )
+                                                 'default' => 'right',
+                                                 'transport' => 'postMessage',
+                                             )
     );
     $wp_customize->add_control(new WP_Customize_Control(
                                    $wp_customize,
@@ -74,14 +64,14 @@ function _ferret_widget_default_view_by_posttype( $wp_customize )
                                        'settings' => '_ferret_widget_default_order_master',
                                        'type' => 'select',
                                        'choices' => array(
-                                           'right' => __('right', '_ferret'),
-                                           'left' => __('left', '_ferret'),
+                                           'right' => __('right'),
+                                           'left' => __('left'),
                                        )
                                    )
                                )
     );
     $post_type = _ferret_get_all_posttype();
-    foreach ( $post_type as $index => $type ) {
+    foreach ($post_type as $index => $type) {
         $wp_customize->add_setting(
             '_ferret_widget_default_view_' . $type, array(
                                                       'default' => 'master-sidebar',
@@ -114,17 +104,71 @@ function _ferret_widget_default_view_by_posttype( $wp_customize )
                                            'settings' => '_ferret_widget_default_order_' . $type,
                                            'type' => 'select',
                                            'choices' => array(
-                                               'right' => __('right', '_ferret'),
-                                               'left' => __('left', '_ferret'),
+                                               'right' => __('right'),
+                                               'left' => __('left'),
                                            )
                                        )
                                    )
         );
     }
 
+
+    /***
+     * loader
+     */
+
+    $wp_customize->add_setting(
+        '_ferret_theme_options_loader_settings', array(
+                                                 'default' => 'none',
+                                                 'transport' => 'postMessage',
+                                             )
+    );
+    $wp_customize->add_control(new WP_Customize_Control(
+                                   $wp_customize,
+                                   '_ferret_loader_default_order_master',
+                                   array(
+                                       'label' => __('add a loader element', '_ferret'),
+                                       'section' => '_ferret_theme_options_loader_section',
+                                       'settings' => '_ferret_theme_options_loader_settings',
+                                       'type' => 'select',
+                                       'choices' => array(
+                                           'none' => __(''),
+                                           'random' => __('random'),
+                                           'flash_left' => __('left'),
+                                           'flash_right' => __('right'),
+                                           'flash_top' => __('top'),
+                                           'flash_bottom' => __('bottom'),
+                                       )
+                                   )
+                               )
+    );
+    $wp_customize->add_setting(
+        '_ferret_theme_options_loader_style_settings', array(
+                                                         'default' => 'default',
+                                                         'transport' => 'postMessage',
+                                                     )
+    );
+    $style_option = array(
+        'default' => __('default', '_ferret'),
+    );
+    for ($i=1;$i<=9;$i++){
+        $style_option[$i] =  __('style-'.$i);
+    }
+    $wp_customize->add_control(new WP_Customize_Control(
+                                   $wp_customize,
+                                   '_ferret_loader_style',
+                                   array(
+                                       'label' => __('choice loader style', '_ferret'),
+                                       'section' => '_ferret_theme_options_loader_section',
+                                       'settings' => '_ferret_theme_options_loader_style_settings',
+                                       'type' => 'select',
+                                       'choices' => $style_option
+                                   )
+                               )
+    );
 }
 
-function _ferret_comment_form_change( $form )
+function _ferret_comment_form_change($form)
 {
     global $user_identity, $post_id;
     $form['logged_in_as'] = '<p class="logged-in-as">' . sprintf(
