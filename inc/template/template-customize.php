@@ -138,6 +138,7 @@ function _ferret_custom_default_view_by_posttype($wp_customize)
                                            'flash_right' => __('right'),
                                            'flash_top' => __('top'),
                                            'flash_bottom' => __('bottom'),
+                                           'fadeOut' => __('fadeOut'),
                                        )
                                    )
                                )

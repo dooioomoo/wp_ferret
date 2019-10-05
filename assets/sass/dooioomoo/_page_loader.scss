@@ -5,19 +5,19 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: $primary;
-  @include gradient-radial($primary, darken($primary, 20));
+  background: $white;
+  @include gradient-radial($white, darken($white, 10));
   z-index: 99999;
 
   .page-loader-mask {
-    display: none;
+    display: block;
     position: absolute;
     top: 0;
-    bottom: 0;
+    bottom: 100%;
     left: 0;
     right: 0;
-    background: $white;
-    @include gradient-directional($white, darken($white, 20));
+    background: $primary;
+    @include gradient-directional($primary, lighten($primary, 20));
     z-index: 9999999;
   }
 
@@ -35,7 +35,7 @@
       display: block;
       width: 100%;
       height: 30px;
-      background: transparent url("../images/logo-white.png") no-repeat center center;
+      background: transparent url("../images/logo-color.png") no-repeat center center;
       background-size: contain;
       bottom: -50px;
       position: absolute;

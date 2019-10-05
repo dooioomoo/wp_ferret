@@ -96,7 +96,11 @@
     @include loader-9();
   }
 }
+
 $s: 5em;
+$masterColor: $primary;
+$secondColor: $white;
+
 @mixin default-loader() {
   .loader {
     margin: 50px auto;
@@ -115,72 +119,71 @@ $s: 5em;
   @-webkit-keyframes load5 {
     0%,
     100% {
-      box-shadow: 0em -2.6em 0em 0em #ffffff, 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.5), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
+      box-shadow: 0em -2.6em 0em 0em $masterColor, 1.8em -1.8em 0 0em rgba($masterColor, 0.2), 2.5em 0em 0 0em rgba($masterColor, 0.2), 1.75em 1.75em 0 0em rgba($masterColor, 0.2), 0em 2.5em 0 0em rgba($masterColor, 0.2), -1.8em 1.8em 0 0em rgba($masterColor, 0.2), -2.6em 0em 0 0em rgba($masterColor, 0.5), -1.8em -1.8em 0 0em rgba($masterColor, 0.7);
     }
     12.5% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7), 1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
+      box-shadow: 0em -2.6em 0em 0em rgba($masterColor, 0.7), 1.8em -1.8em 0 0em $masterColor, 2.5em 0em 0 0em rgba($masterColor, 0.2), 1.75em 1.75em 0 0em rgba($masterColor, 0.2), 0em 2.5em 0 0em rgba($masterColor, 0.2), -1.8em 1.8em 0 0em rgba($masterColor, 0.2), -2.6em 0em 0 0em rgba($masterColor, 0.2), -1.8em -1.8em 0 0em rgba($masterColor, 0.5);
     }
     25% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7), 2.5em 0em 0 0em #ffffff, 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+      box-shadow: 0em -2.6em 0em 0em rgba($masterColor, 0.5), 1.8em -1.8em 0 0em rgba($masterColor, 0.7), 2.5em 0em 0 0em $masterColor, 1.75em 1.75em 0 0em rgba($masterColor, 0.2), 0em 2.5em 0 0em rgba($masterColor, 0.2), -1.8em 1.8em 0 0em rgba($masterColor, 0.2), -2.6em 0em 0 0em rgba($masterColor, 0.2), -1.8em -1.8em 0 0em rgba($masterColor, 0.2);
     }
     37.5% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5), 2.5em 0em 0 0em rgba(255, 255, 255, 0.7), 1.75em 1.75em 0 0em #ffffff, 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+      box-shadow: 0em -2.6em 0em 0em rgba($masterColor, 0.2), 1.8em -1.8em 0 0em rgba($masterColor, 0.5), 2.5em 0em 0 0em rgba($masterColor, 0.7), 1.75em 1.75em 0 0em $masterColor, 0em 2.5em 0 0em rgba($masterColor, 0.2), -1.8em 1.8em 0 0em rgba($masterColor, 0.2), -2.6em 0em 0 0em rgba($masterColor, 0.2), -1.8em -1.8em 0 0em rgba($masterColor, 0.2);
     }
     50% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.5), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7), 0em 2.5em 0 0em #ffffff, -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+      box-shadow: 0em -2.6em 0em 0em rgba($masterColor, 0.2), 1.8em -1.8em 0 0em rgba($masterColor, 0.2), 2.5em 0em 0 0em rgba($masterColor, 0.5), 1.75em 1.75em 0 0em rgba($masterColor, 0.7), 0em 2.5em 0 0em $masterColor, -1.8em 1.8em 0 0em rgba($masterColor, 0.2), -2.6em 0em 0 0em rgba($masterColor, 0.2), -1.8em -1.8em 0 0em rgba($masterColor, 0.2);
     }
     62.5% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5), 0em 2.5em 0 0em rgba(255, 255, 255, 0.7), -1.8em 1.8em 0 0em #ffffff, -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+      box-shadow: 0em -2.6em 0em 0em rgba($masterColor, 0.2), 1.8em -1.8em 0 0em rgba($masterColor, 0.2), 2.5em 0em 0 0em rgba($masterColor, 0.2), 1.75em 1.75em 0 0em rgba($masterColor, 0.5), 0em 2.5em 0 0em rgba($masterColor, 0.7), -1.8em 1.8em 0 0em $masterColor, -2.6em 0em 0 0em rgba($masterColor, 0.2), -1.8em -1.8em 0 0em rgba($masterColor, 0.2);
     }
     75% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.5), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7), -2.6em 0em 0 0em #ffffff, -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+      box-shadow: 0em -2.6em 0em 0em rgba($masterColor, 0.2), 1.8em -1.8em 0 0em rgba($masterColor, 0.2), 2.5em 0em 0 0em rgba($masterColor, 0.2), 1.75em 1.75em 0 0em rgba($masterColor, 0.2), 0em 2.5em 0 0em rgba($masterColor, 0.5), -1.8em 1.8em 0 0em rgba($masterColor, 0.7), -2.6em 0em 0 0em $masterColor, -1.8em -1.8em 0 0em rgba($masterColor, 0.2);
     }
     87.5% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5), -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
+      box-shadow: 0em -2.6em 0em 0em rgba($masterColor, 0.2), 1.8em -1.8em 0 0em rgba($masterColor, 0.2), 2.5em 0em 0 0em rgba($masterColor, 0.2), 1.75em 1.75em 0 0em rgba($masterColor, 0.2), 0em 2.5em 0 0em rgba($masterColor, 0.2), -1.8em 1.8em 0 0em rgba($masterColor, 0.5), -2.6em 0em 0 0em rgba($masterColor, 0.7), -1.8em -1.8em 0 0em $masterColor;
     }
   }
   @keyframes load5 {
     0%,
     100% {
-      box-shadow: 0em -2.6em 0em 0em #ffffff, 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.5), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
+      box-shadow: 0em -2.6em 0em 0em $masterColor, 1.8em -1.8em 0 0em rgba($masterColor, 0.2), 2.5em 0em 0 0em rgba($masterColor, 0.2), 1.75em 1.75em 0 0em rgba($masterColor, 0.2), 0em 2.5em 0 0em rgba($masterColor, 0.2), -1.8em 1.8em 0 0em rgba($masterColor, 0.2), -2.6em 0em 0 0em rgba($masterColor, 0.5), -1.8em -1.8em 0 0em rgba($masterColor, 0.7);
     }
     12.5% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7), 1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
+      box-shadow: 0em -2.6em 0em 0em rgba($masterColor, 0.7), 1.8em -1.8em 0 0em $masterColor, 2.5em 0em 0 0em rgba($masterColor, 0.2), 1.75em 1.75em 0 0em rgba($masterColor, 0.2), 0em 2.5em 0 0em rgba($masterColor, 0.2), -1.8em 1.8em 0 0em rgba($masterColor, 0.2), -2.6em 0em 0 0em rgba($masterColor, 0.2), -1.8em -1.8em 0 0em rgba($masterColor, 0.5);
     }
     25% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7), 2.5em 0em 0 0em #ffffff, 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+      box-shadow: 0em -2.6em 0em 0em rgba($masterColor, 0.5), 1.8em -1.8em 0 0em rgba($masterColor, 0.7), 2.5em 0em 0 0em $masterColor, 1.75em 1.75em 0 0em rgba($masterColor, 0.2), 0em 2.5em 0 0em rgba($masterColor, 0.2), -1.8em 1.8em 0 0em rgba($masterColor, 0.2), -2.6em 0em 0 0em rgba($masterColor, 0.2), -1.8em -1.8em 0 0em rgba($masterColor, 0.2);
     }
     37.5% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5), 2.5em 0em 0 0em rgba(255, 255, 255, 0.7), 1.75em 1.75em 0 0em #ffffff, 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+      box-shadow: 0em -2.6em 0em 0em rgba($masterColor, 0.2), 1.8em -1.8em 0 0em rgba($masterColor, 0.5), 2.5em 0em 0 0em rgba($masterColor, 0.7), 1.75em 1.75em 0 0em $masterColor, 0em 2.5em 0 0em rgba($masterColor, 0.2), -1.8em 1.8em 0 0em rgba($masterColor, 0.2), -2.6em 0em 0 0em rgba($masterColor, 0.2), -1.8em -1.8em 0 0em rgba($masterColor, 0.2);
     }
     50% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.5), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7), 0em 2.5em 0 0em #ffffff, -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+      box-shadow: 0em -2.6em 0em 0em rgba($masterColor, 0.2), 1.8em -1.8em 0 0em rgba($masterColor, 0.2), 2.5em 0em 0 0em rgba($masterColor, 0.5), 1.75em 1.75em 0 0em rgba($masterColor, 0.7), 0em 2.5em 0 0em $masterColor, -1.8em 1.8em 0 0em rgba($masterColor, 0.2), -2.6em 0em 0 0em rgba($masterColor, 0.2), -1.8em -1.8em 0 0em rgba($masterColor, 0.2);
     }
     62.5% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5), 0em 2.5em 0 0em rgba(255, 255, 255, 0.7), -1.8em 1.8em 0 0em #ffffff, -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+      box-shadow: 0em -2.6em 0em 0em rgba($masterColor, 0.2), 1.8em -1.8em 0 0em rgba($masterColor, 0.2), 2.5em 0em 0 0em rgba($masterColor, 0.2), 1.75em 1.75em 0 0em rgba($masterColor, 0.5), 0em 2.5em 0 0em rgba($masterColor, 0.7), -1.8em 1.8em 0 0em $masterColor, -2.6em 0em 0 0em rgba($masterColor, 0.2), -1.8em -1.8em 0 0em rgba($masterColor, 0.2);
     }
     75% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.5), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7), -2.6em 0em 0 0em #ffffff, -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+      box-shadow: 0em -2.6em 0em 0em rgba($masterColor, 0.2), 1.8em -1.8em 0 0em rgba($masterColor, 0.2), 2.5em 0em 0 0em rgba($masterColor, 0.2), 1.75em 1.75em 0 0em rgba($masterColor, 0.2), 0em 2.5em 0 0em rgba($masterColor, 0.5), -1.8em 1.8em 0 0em rgba($masterColor, 0.7), -2.6em 0em 0 0em $masterColor, -1.8em -1.8em 0 0em rgba($masterColor, 0.2);
     }
     87.5% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5), -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
+      box-shadow: 0em -2.6em 0em 0em rgba($masterColor, 0.2), 1.8em -1.8em 0 0em rgba($masterColor, 0.2), 2.5em 0em 0 0em rgba($masterColor, 0.2), 1.75em 1.75em 0 0em rgba($masterColor, 0.2), 0em 2.5em 0 0em rgba($masterColor, 0.2), -1.8em 1.8em 0 0em rgba($masterColor, 0.5), -2.6em 0em 0 0em rgba($masterColor, 0.7), -1.8em -1.8em 0 0em $masterColor;
     }
   }
 
 }
-
 @mixin loader-1() {
   .loader,
   .loader:before,
   .loader:after {
-    background: #ffffff;
+    background: $masterColor;
     -webkit-animation: load1 1s infinite ease-in-out;
     animation: load1 1s infinite ease-in-out;
     width: 1em;
     height: 4em;
   }
   .loader {
-    color: #ffffff;
+    color: $masterColor;
     text-indent: -9999em;
     margin: 50px auto;
     position: relative;
@@ -230,7 +233,6 @@ $s: 5em;
     }
   }
 }
-
 @mixin loader-2() {
   .loader,
   .loader:before,
@@ -239,7 +241,7 @@ $s: 5em;
   }
 
   .loader {
-    color: #ffffff;
+    color: $masterColor;
     font-size: 11px;
     text-indent: -99999em;
     margin: 55px auto;
@@ -259,7 +261,7 @@ $s: 5em;
   .loader:before {
     width: $s/2+.2;
     height: $s+.2;
-    background: rgba($primary, .8);
+    background: rgba($secondColor, .8);
     border-radius: $s/2+.2 0 0 $s+.2;
     top: -0.1em;
     left: -0.1em;
@@ -271,7 +273,7 @@ $s: 5em;
   .loader:after {
     width: $s/2+.2;
     height: $s+.2;
-    background: rgba($primary, .8);
+    background: rgba($secondColor, .8);
     border-radius: 0 $s+.2 $s+.2 0;
     top: -0.1em;
     left: $s/2+.1;
@@ -301,7 +303,6 @@ $s: 5em;
     }
   }
 }
-
 @mixin loader-3() {
   .loader {
     font-size: 10px;
@@ -310,12 +311,12 @@ $s: 5em;
     width: $s;
     height: $s;
     border-radius: 50%;
-    background: #ffffff;
-    background: -moz-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-    background: -webkit-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-    background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-    background: -ms-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-    background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+    background: $masterColor;
+    background: -moz-linear-gradient(left, $masterColor 10%, rgba($masterColor, 0) 42%);
+    background: -webkit-linear-gradient(left, $masterColor 10%, rgba($masterColor, 0) 42%);
+    background: -o-linear-gradient(left, $masterColor 10%, rgba($masterColor, 0) 42%);
+    background: -ms-linear-gradient(left, $masterColor 10%, rgba($masterColor, 0) 42%);
+    background: linear-gradient(to right, $masterColor 10%, rgba($masterColor, 0) 42%);
     position: relative;
     -webkit-animation: load3 1.4s infinite linear;
     animation: load3 1.4s infinite linear;
@@ -326,7 +327,7 @@ $s: 5em;
   .loader:before {
     width: 50%;
     height: 50%;
-    background: #ffffff;
+    background: $masterColor;
     border-radius: 100% 0 0 0;
     position: absolute;
     top: 0;
@@ -334,7 +335,7 @@ $s: 5em;
     content: '';
   }
   .loader:after {
-    background: $primary;
+    background: $secondColor;
     width: 75%;
     height: 75%;
     border-radius: 50%;
@@ -367,10 +368,9 @@ $s: 5em;
     }
   }
 }
-
 @mixin loader-4() {
   .loader {
-    color: #ffffff;
+    color: $masterColor;
     font-size: 11px;
     margin: 50px auto;
     width: 1em;
@@ -439,10 +439,9 @@ $s: 5em;
     }
   }
 }
-
 @mixin loader-5() {
   .loader {
-    color: #ffffff;
+    color: $masterColor;
     font-size: 110px;
     text-indent: -9999em;
     overflow: hidden;
@@ -523,7 +522,6 @@ $s: 5em;
   }
 
 }
-
 @mixin loader-6() {
   .loader,
   .loader:before,
@@ -537,7 +535,7 @@ $s: 5em;
     animation: load7 1.8s infinite ease-in-out;
   }
   .loader {
-    color: #ffffff;
+    color: $masterColor;
     font-size: 10px;
     margin: 50px auto;
     position: relative;
@@ -584,7 +582,6 @@ $s: 5em;
   }
 
 }
-
 @mixin loader-7() {
   .loader,
   .loader:after {
@@ -597,10 +594,10 @@ $s: 5em;
     font-size: 10px;
     position: relative;
     text-indent: -9999em;
-    border-top: 1.1em solid rgba(255, 255, 255, 0.2);
-    border-right: 1.1em solid rgba(255, 255, 255, 0.2);
-    border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
-    border-left: 1.1em solid #ffffff;
+    border-top: 1.1em solid rgba($masterColor, 0.2);
+    border-right: 1.1em solid rgba($masterColor, 0.2);
+    border-bottom: 1.1em solid rgba($masterColor, 0.2);
+    border-left: 1.1em solid $masterColor;
     -webkit-transform: translateZ(0);
     -ms-transform: translateZ(0);
     transform: translateZ(0);
@@ -629,7 +626,6 @@ $s: 5em;
   }
 
 }
-
 @mixin loader-8() {
   position: absolute;
   top: 50%;
@@ -645,7 +641,7 @@ $s: 5em;
   .loader:before, .loader:after {
     content: "";
     position: absolute;
-    border: 4px solid #fff;
+    border: 4px solid $masterColor;
     opacity: 1;
     border-radius: 50%;
     animation: loader28 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
@@ -671,7 +667,6 @@ $s: 5em;
   }
 
 }
-
 @mixin loader-9 {
 
   display: inline-block;
@@ -690,7 +685,7 @@ $s: 5em;
     position: absolute;
     width: 26px;
     height: 26px;
-    background: #fff;
+    background: $masterColor;
     animation: loader9 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
   }
   .loader:after,
@@ -700,7 +695,7 @@ $s: 5em;
     display: block;
     width: 26px;
     height: 26px;
-    background: #fff;
+    background: $masterColor;
   }
   .loader:before {
     left: -17px;
