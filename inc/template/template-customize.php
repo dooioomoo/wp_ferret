@@ -5,6 +5,7 @@
  */
 
 add_action('customize_register', '_ferret_template_customize_register');
+add_action('customize_register', '_ferret_logo_uploader');
 add_filter('comment_form_defaults', '_ferret_comment_form_change');
 
 if (!function_exists('_ferret_template_customize_register')):
@@ -183,4 +184,34 @@ function _ferret_comment_form_change($form)
         ) . '</p>';
 
     return $form;
+}
+
+function _ferret_logo_uploader( $wp_customize )
+{
+
+    $wp_customize->add_section('_ferret_upload_custom_logo' , array (
+        'title'       => 'Logo' ,
+        'description' => 'Display a primary logo' ,
+        'priority'    => 25 ,
+    ));
+
+    $wp_customize->add_setting('custom_logo' , array (
+        'default' => '' ,
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize , 'custom_logo' , array (
+        'label'    => 'primary logo' ,
+        'section'  => '_ferret_upload_custom_logo' ,
+        'settings' => 'custom_logo' ,
+    )));
+
+    $wp_customize->add_setting('custom_logo_sp' , array (
+        'default' => '' ,
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize , 'custom_logo_sp' , array (
+        'label'    => 'SmartPhone Logo' ,
+        'section'  => '_ferret_upload_custom_logo' , // put the name of whatever section you want to add your settings
+        'settings' => 'custom_logo_sp' ,
+    )));
 }
