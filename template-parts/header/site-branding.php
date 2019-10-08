@@ -14,7 +14,7 @@
                 $custom_logo_id = get_theme_mod('custom_logo_sp');
                 if ( wp_is_mobile() && $custom_logo_id ):
                     $custom_logo_attr = array (
-                        'class' => 'custom-logo' ,
+                        'class' => 'custom-logo custom-logo-sp' ,
                     );
 
                     /*
