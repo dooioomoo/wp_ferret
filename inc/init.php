@@ -63,12 +63,12 @@ if ( !function_exists('_ferret_setup') ) :
             'default-image' => '',
         )));
 
-        add_theme_support('custom-logo', array(
-            'height' => 250,
-            'width' => 250,
-            'flex-width' => true,
-            'flex-height' => true,
-        ));
+        //add_theme_support('custom-logo', array(
+        //    'height' => 250,
+        //    'width' => 250,
+        //    'flex-width' => true,
+        //    'flex-height' => true,
+        //));
     }
 endif;
 
