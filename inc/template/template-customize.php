@@ -199,7 +199,7 @@ function _ferret_logo_uploader( $wp_customize )
         'default' => '' ,
     ));
 
-    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize , 'custom_logo' , array (
+    $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize , 'custom_logo' , array (
         'label'    => 'primary logo' ,
         'section'  => '_ferret_upload_custom_logo' ,
         'settings' => 'custom_logo' ,
@@ -209,7 +209,7 @@ function _ferret_logo_uploader( $wp_customize )
         'default' => '' ,
     ));
 
-    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize , 'custom_logo_sp' , array (
+    $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize , 'custom_logo_sp' , array (
         'label'    => 'SmartPhone Logo' ,
         'section'  => '_ferret_upload_custom_logo' , // put the name of whatever section you want to add your settings
         'settings' => 'custom_logo_sp' ,
