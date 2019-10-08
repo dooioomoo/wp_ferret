@@ -10,7 +10,36 @@
     <div class="wrap container">
         <div class="row">
             <div class="site-logo col-md-4">
-                <?php the_custom_logo(); ?>
+                <?php
+                $custom_logo_id = get_theme_mod('custom_logo_sp');
+                if ( wp_is_mobile() && $custom_logo_id ):
+                    $custom_logo_attr = array (
+                        'class' => 'custom-logo' ,
+                    );
+
+                    /*
+                     * If the logo alt attribute is empty, get the site title and explicitly
+                     * pass it to the attributes used by wp_get_attachment_image().
+                     */
+                    $image_alt = get_post_meta($custom_logo_id , '_wp_attachment_image_alt' , TRUE);
+                    if ( empty($image_alt) ) {
+                        $custom_logo_attr['alt'] = get_bloginfo('name' , 'display');
+                    }
+
+                    /*
+                     * If the alt attribute is not empty, there's no need to explicitly pass
+                     * it because wp_get_attachment_image() already adds the alt attribute.
+                     */
+                    $html = sprintf(
+                        '<a href="%1$s" class="custom-logo-link" rel="home">%2$s</a>' ,
+                        esc_url(home_url('/')) ,
+                        wp_get_attachment_image($custom_logo_id , 'full' , FALSE , $custom_logo_attr)
+                    );
+                    echo $html;
+                else:
+                    the_custom_logo();
+                endif;
+                ?>
             </div>
             <div class="col-md-8">
                 <div class="site-branding-text">
