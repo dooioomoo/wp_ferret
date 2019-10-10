@@ -37,9 +37,7 @@
                             class="stocknum text-right"><?php echo _ferret_shop_info_get_meta('_ferret_shop_info__ferret_shop_stock'); ?></span>
                 </div>
                 <div class="price">
-                    <?php
-                    setlocale(LC_MONETARY, 'ja_JP.UTF-8');
-                    echo money_format('%n', intval(_ferret_shop_info_get_meta('_ferret_shop_info__ferret_shop_price'))); ?>
+                    <?php echo money_format(intval(shihaku_shop_info_get_meta('shihaku_shop_info_shihaku_shop_price')),'JPY'); ?>
                 </div>
             </div>
         </div>
