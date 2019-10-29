@@ -27,7 +27,7 @@ function _ferret_scripts()
     /**
      * scripts
      */
-    wp_enqueue_script('_ferret-navigation-js', ___ferret_theme_uri__ . '/assets/js/navigation.min.js', array(), ___ferret_theme_ver__, true);
+    wp_enqueue_script('_ferret-navigation-js', ___ferret_theme_uri__ . '/assets/js/navigation.min.js', array('jquery'), ___ferret_theme_ver__, true);
     wp_enqueue_script('_ferret-common-js', ___ferret_theme_uri__ . '/assets/js/common.min.js', array(), ___ferret_theme_ver__, true);
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
