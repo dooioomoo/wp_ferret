@@ -9,7 +9,7 @@
 add_action('_ferret_get_main_col', '_ferret_get_main_col');
 add_action('_ferret_get_main_col_end', '_ferret_get_main_col_end');
 add_action('_ferret_get_sidebar_col', '_ferret_get_sidebar_col');
-
+add_filter( 'sanitize_file_name','_ferret_custom_upload_name', 5, 1 );
 
 /**
  * action's function
@@ -50,4 +50,14 @@ if ( !function_exists('_ferret_get_sidebar_col') ):
             echo '</section>';
         endif;
     }
+endif;
+
+if ( !function_exists('_ferret_custom_upload_name') ):
+function _ferret_custom_upload_name( $file ) {
+	$info = pathinfo( $file );
+	$ext = empty( $info['extension'] ) ? '' : '.' . $info['extension'];
+	$name = basename( $file, $ext );
+	$file = date("YmdHis") . rand( 00, 99 ) . $ext;//截取前20位MD5长度，加上两位随机
+	return $file;
+}
 endif;
