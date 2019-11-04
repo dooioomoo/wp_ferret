@@ -1,7 +1,7 @@
 "use strict";
 /*template:
 
-npm i -global gulp gulp-sass gulp-concat gulp-clean autoprefixer gulp-connect-php gulp-minify merge-stream browser-sync child_process gulp-cssnano gulp-rename gulp-eslint gulp-imagemin gulp-newer gulp-postcss webpack webpack-stream --save-dev
+npm i -global gulp gulp-sass gulp-concat gulp-clean autoprefixer gulp-connect-php gulp-minify merge-stream browser-sync child_process gulp-cssnano gulp-rename gulp-eslint gulp-imagemin gulp-newer gulp-postcss gulp-plumber cssnano webpack webpack-stream --save-dev
 
 */
 const build = require('./assets/sass/gulpfiles/gulp-require');
