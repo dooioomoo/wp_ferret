@@ -1,5 +1,9 @@
 "use strict";
+/*template:
 
+npm i -global gulp gulp-sass gulp-concat gulp-clean gulp-autoprefixer gulp-connect-php gulp-minify merge-stream browser-sync child_process gulp-cssnano gulp-rename gulp-eslint gulp-imagemin gulp-newer gulp-postcss webpack webpack-stream --save-dev
+
+*/
 const build = require('./assets/sass/gulpfiles/gulp-require');
 const setting = require('./assets/sass/gulpfiles/gulp-settings');
 const sassTask = require('./assets/sass/gulpfiles/gulp-sass');
