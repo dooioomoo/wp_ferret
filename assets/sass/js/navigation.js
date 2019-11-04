@@ -29,7 +29,7 @@
     });
     var backToTop = function () {
         var scrollTrigger = 100, // px
-            scrollTop     = $(window).scrollTop();
+            scrollTop     = $(window).scrollTop();  
         if (scrollTop > scrollTrigger) {
             $('#back-to-top').addClass('show');
         } else {
