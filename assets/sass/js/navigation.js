@@ -11,11 +11,10 @@
         setTimeout(pageLoader, 2000);
         var header = $('.site-branding');
         var sticky = header.offset().top;
-        window.onscroll = () => {
-            stickyNavigation(header, sticky);
-        };
+
         $(window).on('scroll', function () {
             backToTop();
+            stickyNavigation(header, sticky);
         });
         if ($('#back-to-top').length) {
             backToTop();
