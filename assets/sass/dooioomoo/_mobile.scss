@@ -55,7 +55,7 @@
   }
 
   #responsive-menu-container {
-    @include bg-gradient(#004FA0, #003770);
+    @include bg-gradient($primary, lighten($primary,10));
     @include box_shadow(1px 1px 10px rgba($black, .3));
 
     #responsive-menu-wrapper {
