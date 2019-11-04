@@ -11,8 +11,8 @@
         <div class="row">
             <div class="site-logo col-md-4">
                 <?php
-                $custom_logo_id = get_theme_mod('custom_logo_sp');
-                if ( wp_is_mobile() && $custom_logo_id ):
+               $custom_logo_id = get_theme_mod('custom_logo_sp');
+//                if ( wp_is_mobile() && $custom_logo_id or (is_front_page() || is_home()) ):
                     $custom_logo_attr = array (
                         'class' => 'custom-logo custom-logo-sp' ,
                     );
@@ -35,10 +35,12 @@
                         esc_url(home_url('/')) ,
                         wp_get_attachment_image($custom_logo_id , 'full' , FALSE , $custom_logo_attr)
                     );
-                    echo $html;
-                else:
+                    echo '<span class="d-block d-sm-none">'.$html.'</span>';
+//                else:
+                    echo '<span class="d-none d-md-block">';
                     the_custom_logo();
-                endif;
+                    echo '</span>'
+//                endif;
                 ?>
             </div>
             <div class="col-md-8">
