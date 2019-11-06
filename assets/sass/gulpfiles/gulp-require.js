@@ -58,8 +58,9 @@ module.exports = {
     },
     browserSync_start : function browserSync(done) {
         browsersync.init({
-            //proxy  : setting.server + ":" + setting.port,
-            proxy  : setting.server,
+            //在setting修改成真实域名
+            proxy  : setting.server + ":" + setting.port,
+            //proxy  : setting.server,
             baseDir: setting.root,
             open   : true,
             notify : false,
